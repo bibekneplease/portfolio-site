@@ -3,25 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bibek Chaudhary – Experienced IT Support Specialist based in Sydney, Australia.">
-    <title>Bibek Chaudhary | IT Support Specialist</title>
+    <meta name="description" content="Bibek Chaudhary – Desktop Support Engineer & IT Infrastructure Specialist based in Sydney, Australia. 5+ years enterprise experience with Fujitsu, HPE, and more.">
+    <title>Bibek Chaudhary | Desktop Support Engineer</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/custom.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .nav-link { transition: color 0.2s; }
+        .nav-link:hover { color: #4f46e5; }
+        .skill-tag {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4338ca;
+            border-radius: 9999px;
+            padding: 4px 14px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 4px;
+        }
+        .timeline-item { border-left: 3px solid #6366f1; padding-left: 1.5rem; position: relative; }
+        .timeline-item::before {
+            content: '';
+            width: 12px; height: 12px;
+            background: #6366f1;
+            border-radius: 50%;
+            position: absolute;
+            left: -7.5px; top: 6px;
+        }
+        @media (max-width: 640px) {
+            nav ul { display: none; }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-indigo-600">Bibek Chaudhary</h1>
+            <span class="text-xl font-bold text-indigo-600">Bibek Chaudhary</span>
             <nav>
-                <ul class="flex space-x-4 text-sm">
-                    <li><a href="#about" class="nav-link hover:text-indigo-600">About</a></li>
-                    <li><a href="#experience" class="nav-link hover:text-indigo-600">Experience</a></li>
-                    <li><a href="#skills" class="nav-link hover:text-indigo-600">Skills</a></li>
-                    <li><a href="#education" class="nav-link hover:text-indigo-600">Education</a></li>
-                    <li><a href="#projects" class="nav-link hover:text-indigo-600">Projects</a></li>
-                    <li><a href="#contact" class="nav-link hover:text-indigo-600">Contact</a></li>
+                <ul class="flex space-x-5 text-sm font-medium text-gray-600">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,126 +57,298 @@
     <!-- Hero Section -->
     <section id="hero" class="relative h-screen bg-fixed bg-center bg-cover flex flex-col justify-center items-center text-center text-white"
              style="background-image: url('assets/images/background.jpg');">
-        <h2 class="text-5xl sm:text-6xl font-extrabold mb-4">Bibek Chaudhary</h2>
-        <p class="text-xl sm:text-2xl mb-10">Experienced IT Support Specialist</p>
-        <div class="flex gap-4">
-            <a href="#contact"
-               class="bg-white text-indigo-600 py-3 px-6 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">
-                Hire Me
-            </a>
-            <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank"
-               class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-full font-medium shadow-lg transition">
-                LinkedIn
-            </a>
+        <div style="background:rgba(0,0,0,0.45); position:absolute; inset:0;"></div>
+        <div class="relative z-10 px-4">
+            <h1 class="text-5xl sm:text-6xl font-extrabold mb-3">Bibek Chaudhary</h1>
+            <p class="text-xl sm:text-2xl mb-2 font-medium">Desktop Support Engineer</p>
+            <p class="text-base sm:text-lg mb-10 text-indigo-200">IT Infrastructure &amp; Endpoint Specialist &nbsp;·&nbsp; Sydney, NSW</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#contact"
+                   class="bg-white text-indigo-600 py-3 px-7 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">
+                    Hire Me
+                </a>
+                <a href="#experience"
+                   class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-7 rounded-full font-semibold shadow-lg transition">
+                    View Experience
+                </a>
+                <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank"
+                   class="border border-white text-white py-3 px-7 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="bg-indigo-600 text-white py-8">
+        <div class="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            <div>
+                <div class="text-3xl font-extrabold">5+</div>
+                <div class="text-indigo-200 text-sm mt-1">Years Experience</div>
+            </div>
+            <div>
+                <div class="text-3xl font-extrabold">2,000+</div>
+                <div class="text-indigo-200 text-sm mt-1">Endpoints Managed</div>
+            </div>
+            <div>
+                <div class="text-3xl font-extrabold">500+</div>
+                <div class="text-indigo-200 text-sm mt-1">Users Supported</div>
+            </div>
+            <div>
+                <div class="text-3xl font-extrabold">98%</div>
+                <div class="text-indigo-200 text-sm mt-1">SLA Compliance</div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="bg-white py-16">
-        <div class="container mx-auto px-4 text-center max-w-2xl">
-            <h2 class="text-4xl font-bold text-indigo-600 mb-8">About Me</h2>
-            <p class="text-lg text-gray-700">
-                Hi, I'm Bibek Chaudhary — an IT Support Specialist based in Sydney with 4+ years of experience in on-site and remote support. I've worked with enterprise clients at HPE and the NSW Government, managing everything from ServiceNow ticketing to VIP user support and data centre monitoring.
+        <div class="container mx-auto px-4 max-w-3xl text-center">
+            <h2 class="text-4xl font-bold text-indigo-600 mb-6">About Me</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                I'm a Desktop Support Engineer with 5+ years of enterprise experience across service desk, onsite field support, and endpoint infrastructure. I've deployed and supported technology for major Australian enterprises including <strong>Woolworths, Coles, Myer, Westpac, Ampol, and Toyota</strong>. I specialise in Microsoft 365, Intune, Active Directory, and ITIL-aligned service delivery across complex multi-site environments — consistently achieving 98%+ SLA compliance and supporting 500+ users including C-level executives.
             </p>
         </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-8">Work Experience</h2>
-            <div class="space-y-6 max-w-2xl mx-auto">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold text-indigo-600">IT Service Desk</h3>
-                    <p><strong>NSW Department of Planning, Housing and Infrastructure</strong> | July 2024 – Present</p>
-                    <ul class="list-disc pl-5 mt-2 text-gray-700">
-                        <li>First point of contact for customer ICT inquiries, ensuring timely responses and solutions.</li>
-                        <li>Troubleshot hardware and software issues across Windows and Mac environments.</li>
-                        <li>Managed and prioritised support requests via the ServiceNow ticketing system.</li>
-                    </ul>
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-12">Work Experience</h2>
+            <div class="space-y-10">
+
+                <!-- Fujitsu -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
+                            <h3 class="text-xl font-bold text-gray-900">Advanced Onsite Technician</h3>
+                            <span class="text-sm text-indigo-600 font-medium bg-indigo-50 px-3 py-1 rounded-full">July 2024 – Present</span>
+                        </div>
+                        <p class="text-indigo-600 font-semibold mb-3">Fujitsu Australia — Lidcombe, NSW</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1.5 text-sm">
+                            <li>Deliver Level 2 onsite desktop and infrastructure support for major Australian enterprises including <strong>Woolworths, Coles, Myer, Westpac, Ampol, and Toyota</strong> across multi-site environments.</li>
+                            <li>Lead national infrastructure refresh and device rollout programs — completing <strong>20+ device deployments per week</strong> across distributed retail and enterprise locations.</li>
+                            <li>Install, configure, and decommission EFTPOS/POS terminals, servers, switches, routers, and wireless access points.</li>
+                            <li>Conduct Root Cause Analysis (RCA) on recurring hardware and connectivity failures, implementing preventive measures to improve site stability.</li>
+                            <li>Coordinate vendors and third-party engineers during escalations, ensuring swift resolution and transparent client communication.</li>
+                            <li>Maintain structured asset lifecycle documentation in compliance with client SLAs.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold text-indigo-600">Onsite IT Support Technician</h3>
-                    <p><strong>Hewlett Packard Enterprise (HPE), Rhodes Sydney</strong> | Oct 2022 – July 2024</p>
-                    <ul class="list-disc pl-5 mt-2 text-gray-700">
-                        <li>Managed on-site and remote IT support tickets via email and ServiceNow.</li>
-                        <li>Provided dedicated support to VIPs, including senior executives and key business users.</li>
-                        <li>Monitored data centre systems and network alerts, minimising downtime.</li>
-                    </ul>
+
+                <!-- HPE -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
+                            <h3 class="text-xl font-bold text-gray-900">Onsite IT Support Technician</h3>
+                            <span class="text-sm text-indigo-600 font-medium bg-indigo-50 px-3 py-1 rounded-full">Oct 2022 – July 2024</span>
+                        </div>
+                        <p class="text-indigo-600 font-semibold mb-3">Hewlett Packard Enterprise (HPE) — Rhodes, NSW</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1.5 text-sm">
+                            <li>Managed <strong>15–20+ Level 1/2 ServiceNow tickets daily</strong>, consistently meeting SLA and KPI targets across a 500+ user enterprise environment.</li>
+                            <li>Served as Level 2 escalation point for complex desktop, Microsoft 365, and access-related incidents before Level 3 handover.</li>
+                            <li>Delivered white-glove executive support to C-level stakeholders across the APAC region.</li>
+                            <li>Administered Active Directory and Azure AD lifecycle management for onboarding, offboarding, and access governance.</li>
+                            <li>Managed <strong>2,000+ mobile devices and enterprise laptops</strong> via Microsoft Intune and MDM platforms.</li>
+                            <li>Led laptop imaging and deployment using SOE standards and Microsoft Intune (Autopilot).</li>
+                            <li><strong>Key Achievement:</strong> Drove a data centre consolidation initiative — coordinating workloads and scheduling to achieve minimal downtime throughout the transition.</li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- Zamtas -->
+                <div class="timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-wrap justify-between items-start gap-2 mb-1">
+                            <h3 class="text-xl font-bold text-gray-900">Service Desk Analyst</h3>
+                            <span class="text-sm text-indigo-600 font-medium bg-indigo-50 px-3 py-1 rounded-full">June 2020 – Nov 2021</span>
+                        </div>
+                        <p class="text-indigo-600 font-semibold mb-3">Zamtas Technologies — Clyde, NSW</p>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1.5 text-sm">
+                            <li>Served as first point of contact for <strong>1,200+ users across 1,500+ corporate devices</strong>, with 98% SLA compliance and 70% first-call resolution.</li>
+                            <li>Resolved hardware, software, and Microsoft 365 incidents end-to-end; managed user access via Active Directory and Office 365.</li>
+                            <li>Handled high-volume inbound technical support via RingCentral call centre using ITIL processes.</li>
+                            <li>Authored and maintained a knowledgebase of common issues, improving team efficiency and reducing average handling time.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-8">Skills</h2>
-            <ul class="space-y-4 max-w-xl mx-auto text-gray-700 list-disc pl-5">
-                <li>On-Site IT Support (Windows/Mac Hardware & Software Diagnostics & Troubleshooting)</li>
-                <li>Ticket Management (ServiceNow, Freshdesk)</li>
-                <li>IT Asset & Device Management (MDM, Intune, JAMF, SCCM)</li>
-                <li>AV & Video Conferencing (WebEx, Zoom, HP Slice, Polycom, Teams)</li>
-            </ul>
+    <section id="skills" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-10">Core Technical Skills</h2>
+            <div class="space-y-6">
+
+                <div>
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Microsoft Stack</h3>
+                    <div>
+                        <span class="skill-tag">Windows 10/11</span>
+                        <span class="skill-tag">Windows Server</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Azure AD / Entra ID</span>
+                        <span class="skill-tag">Microsoft 365</span>
+                        <span class="skill-tag">Exchange Online</span>
+                        <span class="skill-tag">SharePoint</span>
+                        <span class="skill-tag">Teams</span>
+                        <span class="skill-tag">Group Policy</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Endpoint Management</h3>
+                    <div>
+                        <span class="skill-tag">Microsoft Intune</span>
+                        <span class="skill-tag">Autopilot</span>
+                        <span class="skill-tag">SCCM</span>
+                        <span class="skill-tag">SOE Imaging</span>
+                        <span class="skill-tag">MDM (iOS/Android)</span>
+                        <span class="skill-tag">Patch Management</span>
+                        <span class="skill-tag">JAMF</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Infrastructure & Networking</h3>
+                    <div>
+                        <span class="skill-tag">DNS</span>
+                        <span class="skill-tag">DHCP</span>
+                        <span class="skill-tag">TCP/IP</span>
+                        <span class="skill-tag">VPN</span>
+                        <span class="skill-tag">VLAN</span>
+                        <span class="skill-tag">Wi-Fi Troubleshooting</span>
+                        <span class="skill-tag">RDP</span>
+                        <span class="skill-tag">Switches / Routers / WAPs</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Virtualisation & Cloud</h3>
+                    <div>
+                        <span class="skill-tag">VMware</span>
+                        <span class="skill-tag">Hyper-V</span>
+                        <span class="skill-tag">Azure Fundamentals</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">ITSM & Service Delivery</h3>
+                    <div>
+                        <span class="skill-tag">ServiceNow</span>
+                        <span class="skill-tag">Freshdesk</span>
+                        <span class="skill-tag">ITIL</span>
+                        <span class="skill-tag">Incident Management</span>
+                        <span class="skill-tag">Change Management</span>
+                        <span class="skill-tag">Knowledgebase Authoring</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">AV & Collaboration</h3>
+                    <div>
+                        <span class="skill-tag">Microsoft Teams Rooms</span>
+                        <span class="skill-tag">Zoom</span>
+                        <span class="skill-tag">WebEx</span>
+                        <span class="skill-tag">Polycom</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
     <!-- Education Section -->
     <section id="education" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-8">Education</h2>
-            <div class="space-y-6 max-w-xl mx-auto">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold text-indigo-600">Master of Information Technology</h3>
-                    <p><strong>Charles Sturt University, Sydney, Australia</strong> | 2021</p>
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-10">Education</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4">
+                    <div class="text-3xl">🎓</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Master of Information Technology</h3>
+                        <p class="text-indigo-600 font-semibold">Charles Sturt University, Sydney NSW</p>
+                        <p class="text-gray-500 text-sm">2021</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold text-indigo-600">Bachelor of Engineering in Computer Science & Engineering</h3>
-                    <p><strong>EWIT Bangalore, India</strong> | 2017</p>
+                <div class="bg-white p-6 rounded-lg shadow-sm flex items-start gap-4">
+                    <div class="text-3xl">🎓</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Bachelor of Engineering, Computer Science</h3>
+                        <p class="text-indigo-600 font-semibold">EWIT, Bangalore, India</p>
+                        <p class="text-gray-500 text-sm">2017</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-indigo-600 mb-4">Projects</h2>
-            <p class="text-gray-500">Coming soon — check back shortly.</p>
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-10">Certifications & Memberships</h2>
+            <div class="space-y-4">
+                <div class="bg-indigo-50 border border-indigo-100 p-5 rounded-lg flex items-start gap-4">
+                    <div class="text-2xl">🏅</div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">Member — Australian Computer Society (ACS)</h3>
+                        <p class="text-gray-600 text-sm">ICT Professional Body, Australia</p>
+                    </div>
+                </div>
+                <div class="bg-indigo-50 border border-indigo-100 p-5 rounded-lg flex items-start gap-4">
+                    <div class="text-2xl">✅</div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">ACS Skills Assessment — Positive Outcome</h3>
+                        <p class="text-gray-600 text-sm">Computer Network and Systems Engineer</p>
+                    </div>
+                </div>
+                <div class="bg-yellow-50 border border-yellow-100 p-5 rounded-lg flex items-start gap-4">
+                    <div class="text-2xl">🔄</div>
+                    <div>
+                        <h3 class="font-bold text-gray-900">Microsoft MD-102: Endpoint Administrator</h3>
+                        <p class="text-gray-600 text-sm">In Progress</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4 max-w-xl">
-            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-8">Contact Me</h2>
-            <p class="text-center text-gray-700 mb-6">
-                Email: <a href="mailto:chaudharybibek@gmail.com" class="text-indigo-600">chaudharybibek@gmail.com</a>
+            <h2 class="text-4xl font-bold text-indigo-600 text-center mb-4">Contact Me</h2>
+            <p class="text-center text-gray-600 mb-8">
+                <a href="mailto:chaudharybibek@gmail.com" class="text-indigo-600 hover:underline">chaudharybibek@gmail.com</a>
                 &nbsp;·&nbsp;
-                <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" class="text-indigo-600">LinkedIn</a>
+                <a href="tel:0449900443" class="text-indigo-600 hover:underline">0449 900 443</a>
+                &nbsp;·&nbsp;
+                <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" class="text-indigo-600 hover:underline">LinkedIn</a>
             </p>
             <form action="https://formspree.io/f/xreryawg" method="POST" class="bg-white p-8 shadow-md rounded-lg space-y-4">
                 <div>
                     <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                    <input type="text" id="name" name="name" placeholder="Your name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
                 </div>
                 <div>
                     <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" required>
                 </div>
                 <div>
                     <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
-                    <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg" required></textarea>
+                    <textarea id="message" name="message" rows="5" placeholder="How can I help?" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400" required></textarea>
                 </div>
-                <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700">Send Message</button>
+                <button type="submit" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 font-semibold transition">Send Message</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-200 py-6">
-        <div class="container mx-auto text-center">
+        <div class="container mx-auto text-center text-sm">
             <p>&copy; 2026 Bibek Chaudhary. All Rights Reserved.</p>
+            <p class="mt-1 text-gray-500">Sydney, NSW &nbsp;·&nbsp; <a href="mailto:chaudharybibek@gmail.com" class="hover:text-white">chaudharybibek@gmail.com</a></p>
         </div>
     </footer>
 
