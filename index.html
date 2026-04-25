@@ -374,12 +374,22 @@
             <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" class="btn-ghost">linkedin →</a>
             <a href="assets/Bibek_Chaudhary_Resume.pdf" download class="btn-cv">⬇ download cv</a>
         </div>
-        <div class="hero-stats">
-            <div class="stat"><div class="stat-val">5+</div><div class="stat-lbl">Yrs Exp</div></div>
-            <div class="stat"><div class="stat-val">2k+</div><div class="stat-lbl">Endpoints</div></div>
-            <div class="stat"><div class="stat-val">500+</div><div class="stat-lbl">Users</div></div>
-            <div class="stat"><div class="stat-val">98%</div><div class="stat-lbl">SLA</div></div>
-        </div>
+        <div class="stat-item">
+    <div class="stat-value"><span class="stat-number" data-target="5">0</span>+</div>
+    <div class="stat-label">Yrs Exp</div>
+</div>
+<div class="stat-item">
+    <div class="stat-value"><span class="stat-number" data-target="2000">0</span>+</div>
+    <div class="stat-label">Endpoints</div>
+</div>
+<div class="stat-item">
+    <div class="stat-value"><span class="stat-number" data-target="500">0</span>+</div>
+    <div class="stat-label">Users</div>
+</div>
+<div class="stat-item">
+    <div class="stat-value"><span class="stat-number" data-target="98">0</span>%</div>
+    <div class="stat-label">SLA</div>
+</div>
     </div>
 </section>
 
@@ -734,6 +744,35 @@
         resize();
         draw();
     })();
+    // --- NUMBER COUNTER ANIMATION ---
+const statsSection = document.querySelector('.hero-stats'); // Make sure this matches your container class
+const statNumbers = document.querySelectorAll('.stat-number');
+let started = false;
+
+function startCounting() {
+    statNumbers.forEach(num => {
+        const target = +num.getAttribute('data-target');
+        const count = +num.innerText;
+        const increment = target / 50; // Adjust speed: higher number = slower
+
+        if (count < target) {
+            num.innerText = Math.ceil(count + increment);
+            setTimeout(startCounting, 30);
+        } else {
+            num.innerText = target; // Ensure it ends exactly on the target
+        }
+    });
+}
+
+// Observe when the stats enter the screen
+const statsObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting && !started) {
+        startCounting();
+        started = true;
+    }
+}, { threshold: 0.5 });
+
+statsObserver.observe(statsSection);
 </script>
 </body>
 </html>
