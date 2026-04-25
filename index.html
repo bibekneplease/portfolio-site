@@ -11,6 +11,9 @@
     <meta property="og:url" content="https://www.chaudharybibek.com.np">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bibek Chaudhary | Desktop Support Engineer">
+    <meta name="twitter:description" content="5+ years enterprise IT experience across Fujitsu, HPE and more. Based in Sydney, NSW.">
+    <meta name="twitter:image" content="assets/images/headshot.jpg">
     <title>Bibek Chaudhary | Desktop Support Engineer</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='4' fill='%236366f1'/><text y='.9em' font-size='52' font-family='monospace' font-weight='bold' fill='white' x='50%' text-anchor='middle' dominant-baseline='auto' dy='28'>BC</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -54,7 +57,7 @@
         body.light .note-desc { color: #6b7280; }
         body.light #mobile-menu { background: #ffffff; }
 
-        /* THEME TOGGLE BUTTON */
+        /* THEME TOGGLE */
         .theme-toggle {
             background: none; border: 1px solid var(--border);
             color: var(--text-muted); cursor: pointer;
@@ -65,6 +68,7 @@
             letter-spacing: 0.04em; white-space: nowrap;
         }
         .theme-toggle:hover { border-color: var(--indigo); color: var(--indigo); }
+
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15px; line-height: 1.7; }
@@ -97,13 +101,13 @@
         #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 56px; position: relative; overflow: hidden; }
         .hero-bg { position: absolute; inset: 0; background-image: url('assets/images/server-room.jpg'); background-size: cover; background-position: center top; }
         .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,13,15,0.92) 0%, rgba(13,13,15,0.75) 50%, rgba(99,102,241,0.15) 100%); }
-        .hero-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%); top: 50%; left: 30%; transform: translate(-50%, -50%); pointer-events: none; }
+        .hero-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%); top: 50%; left: 30%; transform: translate(-50%,-50%); pointer-events: none; }
         .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; width: 100%; }
         .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--indigo); background: var(--indigo-dim); border: 1px solid rgba(99,102,241,0.2); padding: 5px 12px; border-radius: 4px; margin-bottom: 1.5rem; letter-spacing: 0.06em; }
         .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--indigo); animation: blink 1.5s infinite; }
-        @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+        @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.2; } }
         .hero-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid var(--border-hover); margin-bottom: 1.5rem; display: block; }
-        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 600; line-height: 1.1; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em; font-family: var(--sans); }
+        h1 { font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 600; line-height: 1.1; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em; font-family: var(--sans); }
         h1 em { color: var(--indigo); font-style: normal; }
         .hero-sub { font-size: 1.1rem; color: var(--text-muted); max-width: 520px; margin-bottom: 2.5rem; font-weight: 300; }
         .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 3rem; }
@@ -111,7 +115,7 @@
         .btn-primary:hover { background: #4f52d4; transform: translateY(-1px); }
         .btn-ghost { background: transparent; color: var(--text-muted); padding: 10px 24px; border-radius: 4px; text-decoration: none; font-size: 13px; border: 1px solid var(--border); transition: border-color 0.2s, color 0.2s; font-family: var(--mono); }
         .btn-ghost:hover { border-color: var(--indigo); color: var(--indigo); }
-        .hero-stats { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; max-width: 480px; background: rgba(13,13,15,0.6); backdrop-filter: blur(8px); }
+        .hero-stats { display: flex; flex-wrap: wrap; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; max-width: 480px; background: rgba(13,13,15,0.6); backdrop-filter: blur(8px); }
         .stat { flex: 1; min-width: 100px; padding: 16px 20px; border-right: 1px solid var(--border); }
         .stat:last-child { border-right: none; }
         .stat-val { font-family: var(--mono); font-size: 1.4rem; color: var(--indigo); font-weight: 500; }
@@ -123,14 +127,11 @@
         @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
         .about-text { font-size: 15px; color: #9ca3af; line-height: 1.8; }
         .about-text strong { color: var(--text); font-weight: 500; }
-
-        /* Podium photo card */
         .about-photo-card { position: relative; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
-        .about-photo-card img { width: 100%; height: 280px; object-fit: cover; object-position: center top; display: block; }
+        .about-photo-card img { width: 100%; height: auto; object-fit: contain; display: block; }
         .about-photo-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(13,13,15,0.95)); padding: 1.5rem 1rem 1rem; }
         .about-photo-caption p { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
         .about-photo-caption span { color: var(--indigo); }
-
         .client-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
         .client-chip { font-family: var(--mono); font-size: 11px; color: var(--text-muted); border: 1px solid var(--border); padding: 4px 10px; border-radius: 3px; transition: border-color 0.2s, color 0.2s; }
         .client-chip:hover { border-color: var(--indigo); color: var(--indigo); }
@@ -150,9 +151,7 @@
         .job-list li strong { color: var(--text); font-weight: 500; }
         .achievement { color: #fbbf24 !important; }
         .achievement::before { content: '★' !important; color: #fbbf24 !important; }
-
-        /* Data centre photo strip */
-        .photo-strip { margin-top: 2rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); position: relative; height: 220px; }
+        .photo-strip { margin-top: 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); position: relative; height: 220px; }
         .photo-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
         .photo-strip-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,13,15,0.7) 0%, transparent 40%, transparent 60%, rgba(13,13,15,0.7) 100%); }
         .photo-strip-label { position: absolute; bottom: 12px; left: 16px; font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
@@ -199,7 +198,7 @@
         .project-title { font-size: 15px; font-weight: 500; color: var(--text); }
         .project-date { font-family: var(--mono); font-size: 11px; color: var(--indigo); background: var(--indigo-dim); padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
         .project-org { font-family: var(--mono); font-size: 12px; color: var(--text-muted); margin-bottom: 1.25rem; }
-        .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; }
+        .project-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 1rem; }
         @media (max-width: 580px) { .project-grid { grid-template-columns: 1fr; } }
         .project-col-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
         .project-col-text { font-size: 13px; color: #9ca3af; line-height: 1.6; }
@@ -240,7 +239,7 @@
         .footer-meta a { color: var(--text-muted); text-decoration: none; }
         .footer-meta a:hover { color: var(--indigo); }
 
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
         .hero-content > * { animation: fadeUp 0.6s ease both; }
         .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
         .hero-content > *:nth-child(2) { animation-delay: 0.12s; }
@@ -268,10 +267,12 @@
                 <li><a href="#contact">contact</a></li>
             </ul>
         </nav>
-        <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙 dark</button>
-        <button id="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙 dark</button>
+            <button id="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
     </div>
     <div id="mobile-menu">
         <a href="#about" onclick="document.getElementById('mobile-menu').classList.remove('open')">about</a>
@@ -285,7 +286,7 @@
     </div>
 </header>
 
-<!-- HERO — server room photo as background -->
+<!-- HERO -->
 <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-bg-overlay"></div>
@@ -308,7 +309,7 @@
     </div>
 </section>
 
-<!-- ABOUT — with HPE podium photo -->
+<!-- ABOUT -->
 <section id="about">
     <div class="container">
         <div class="section-label">// about</div>
@@ -319,7 +320,7 @@
                     I'm a Desktop Support Engineer with <strong>5+ years of enterprise IT experience</strong> across service desk, onsite field support, and endpoint infrastructure. I specialise in <strong>Microsoft 365, Intune, Active Directory</strong>, and ITIL-aligned service delivery across complex multi-site environments.<br><br>
                     Consistently achieving <strong>98%+ SLA compliance</strong> while supporting 500+ users including C-level executives. Currently studying for <strong>Microsoft MD-102</strong>.
                 </p>
-                <p style="font-family:var(--mono); font-size:11px; color:var(--text-muted); letter-spacing:0.08em; margin: 1.5rem 0 0.75rem;">// enterprises supported</p>
+                <p style="font-family:var(--mono);font-size:11px;color:var(--text-muted);letter-spacing:0.08em;margin:1.5rem 0 0.75rem;">// enterprises supported</p>
                 <div class="client-grid">
                     <span class="client-chip">Woolworths</span>
                     <span class="client-chip">Coles</span>
@@ -331,7 +332,6 @@
                     <span class="client-chip">Fujitsu</span>
                 </div>
             </div>
-            <!-- HPE Podium Photo -->
             <div class="about-photo-card">
                 <img src="assets/images/2022_10_28_17_31_IMG_3989.JPG" alt="Bibek presenting at HPE Aruba event">
                 <div class="about-photo-caption">
@@ -342,7 +342,7 @@
     </div>
 </section>
 
-<!-- EXPERIENCE — with data centre photo strip -->
+<!-- EXPERIENCE -->
 <section id="experience">
     <div class="container">
         <div class="section-label">// experience</div>
@@ -378,11 +378,10 @@
                     <li>Led laptop imaging and deployment using SOE standards and Intune Autopilot.</li>
                     <li class="achievement"><strong>Key Achievement:</strong> Drove a data centre consolidation initiative with minimal downtime throughout.</li>
                 </ul>
-                <!-- Data centre photo strip -->
-                <div class="photo-strip" style="margin-top:1.5rem;">
-                    <img src="assets/images/data-centre.jpg" alt="HPE data centre work">
+                <div class="photo-strip">
+                    <img src="assets/images/hpe-office.jpg" alt="Bibek at HPE office Rhodes NSW">
                     <div class="photo-strip-overlay"></div>
-                    <div class="photo-strip-label"><span>// on_site</span> · HPE Data Centre · Rhodes, NSW</div>
+                    <div class="photo-strip-label"><span>// on_site</span> · HPE Office · Rhodes, NSW</div>
                 </div>
             </div>
 
@@ -510,7 +509,7 @@
     <div class="container">
         <div class="section-label">// notes</div>
         <h2>Notes &amp; Articles</h2>
-        <p style="color:var(--text-muted); font-size:13px; margin-bottom:2rem; font-family:var(--mono);">/* documenting what I learn — from the field and from study */</p>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:2rem;font-family:var(--mono);">/* documenting what I learn — from the field and from study */</p>
         <div class="notes-grid">
             <div class="note-card">
                 <div class="note-type" style="color:#6366f1;"><div class="note-dot" style="background:#6366f1;"></div>study_notes</div>
@@ -571,12 +570,11 @@
             <a href="mailto:chaudharybibek@gmail.com">chaudharybibek@gmail.com</a> &nbsp;·&nbsp;
             <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank">linkedin</a>
         </div>
-        <div style="font-family:var(--mono); font-size:11px; color:var(--text-dim); margin-top:8px;">&copy; 2026 · all rights reserved</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:8px;">&copy; 2026 · all rights reserved</div>
     </div>
 </footer>
 
 <script src="scripts/main.js"></script>
-
 <script>
     function toggleTheme() {
         const body = document.body;
@@ -591,14 +589,13 @@
             localStorage.setItem('theme', 'light');
         }
     }
-    // Persist preference
     if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light');
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('theme-btn').textContent = '☀️ light';
+            const btn = document.getElementById('theme-btn');
+            if (btn) btn.textContent = '☀️ light';
         });
     }
 </script>
-
 </body>
-</html>
+                        </html>
