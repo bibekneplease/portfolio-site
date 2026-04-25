@@ -99,7 +99,7 @@
 
         /* HERO */
         #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 56px; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; background-image: url('assets/images/server-room.jpg'); background-size: cover; background-position: center top; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('assets/images/2022_10_13_16_48_IMG_3972.JPG'); background-size: cover; background-position: center top; }
         .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,13,15,0.92) 0%, rgba(13,13,15,0.75) 50%, rgba(99,102,241,0.15) 100%); }
         .hero-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%); top: 50%; left: 30%; transform: translate(-50%,-50%); pointer-events: none; }
         .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; width: 100%; }
@@ -129,9 +129,9 @@
         .about-text strong { color: var(--text); font-weight: 500; }
         .about-photo-card { position: relative; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
         .about-photo-card img { width: 100%; height: auto; object-fit: contain; display: block; }
-        .about-photo-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(13,13,15,0.95)); padding: 1.5rem 1rem 1rem; }
-        .about-photo-caption p { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
-        .about-photo-caption span { color: var(--indigo); }
+        .about-photo-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(13,13,15,0.98) 60%); padding: 2rem 1rem 1rem; }
+        .about-photo-caption p { font-family: var(--mono); font-size: 11px; color: #e5e7eb; text-shadow: 0 1px 4px rgba(0,0,0,0.8); }
+        .about-photo-caption span { color: #818cf8; font-weight: 500; }
         .client-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
         .client-chip { font-family: var(--mono); font-size: 11px; color: var(--text-muted); border: 1px solid var(--border); padding: 4px 10px; border-radius: 3px; transition: border-color 0.2s, color 0.2s; }
         .client-chip:hover { border-color: var(--indigo); color: var(--indigo); }
@@ -247,6 +247,64 @@
         .hero-content > *:nth-child(4) { animation-delay: 0.28s; }
         .hero-content > *:nth-child(5) { animation-delay: 0.36s; }
         .hero-content > *:nth-child(6) { animation-delay: 0.44s; }
+
+        /* SCROLL ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        /* Stagger delays */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+
+        /* Typing cursor blink on hero */
+        .cursor::after {
+            content: '|';
+            color: var(--indigo);
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        /* Glowing indigo line under section labels */
+        .section-label { position: relative; }
+
+        /* Smooth stat counter */
+        .stat-val { transition: color 0.3s; }
     </style>
 </head>
 <body>
@@ -312,11 +370,11 @@
 <!-- ABOUT -->
 <section id="about">
     <div class="container">
-        <div class="section-label">// about</div>
-        <h2>Who I Am</h2>
+        <div class="section-label reveal">// about</div>
+        <h2 class="reveal delay-100">Who I Am</h2>
         <div class="about-grid">
             <div>
-                <p class="about-text">
+                <p class="about-text reveal-left">
                     I'm a Desktop Support Engineer with <strong>5+ years of enterprise IT experience</strong> across service desk, onsite field support, and endpoint infrastructure. I specialise in <strong>Microsoft 365, Intune, Active Directory</strong>, and ITIL-aligned service delivery across complex multi-site environments.<br><br>
                     Consistently achieving <strong>98%+ SLA compliance</strong> while supporting 500+ users including C-level executives. Currently studying for <strong>Microsoft MD-102</strong>.
                 </p>
@@ -332,7 +390,7 @@
                     <span class="client-chip">Fujitsu</span>
                 </div>
             </div>
-            <div class="about-photo-card">
+            <div class="about-photo-card reveal-right">
                 <img src="assets/images/2022_10_28_17_31_IMG_3989.JPG" alt="Bibek presenting at HPE Aruba event">
                 <div class="about-photo-caption">
                     <p><span>// presenting</span> at HPE Aruba event · Sydney</p>
@@ -345,11 +403,11 @@
 <!-- EXPERIENCE -->
 <section id="experience">
     <div class="container">
-        <div class="section-label">// experience</div>
-        <h2>Work History</h2>
+        <div class="section-label reveal">// experience</div>
+        <h2 class="reveal delay-100">Work History</h2>
         <div class="timeline">
 
-            <div class="job">
+            <div class="job reveal">
                 <div class="job-header">
                     <span class="job-title">Advanced Onsite Technician</span>
                     <span class="job-date">July 2024 – Present</span>
@@ -364,7 +422,7 @@
                 </ul>
             </div>
 
-            <div class="job">
+            <div class="job reveal">
                 <div class="job-header">
                     <span class="job-title">Onsite IT Support Technician</span>
                     <span class="job-date">Oct 2022 – July 2024</span>
@@ -385,7 +443,7 @@
                 </div>
             </div>
 
-            <div class="job">
+            <div class="job reveal">
                 <div class="job-header">
                     <span class="job-title">Service Desk Analyst</span>
                     <span class="job-date">June 2020 – Nov 2021</span>
@@ -405,8 +463,8 @@
 <!-- SKILLS -->
 <section id="skills">
     <div class="container">
-        <div class="section-label">// skills</div>
-        <h2>Technical Stack</h2>
+        <div class="section-label reveal">// skills</div>
+        <h2 class="reveal delay-100">Technical Stack</h2>
         <div class="skill-groups">
             <div><div class="skill-group-label">microsoft_stack</div><div class="tags"><span class="tag">Windows 10/11</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span><span class="tag">Azure AD / Entra ID</span><span class="tag">Microsoft 365</span><span class="tag">Exchange Online</span><span class="tag">SharePoint</span><span class="tag">Teams</span><span class="tag">Group Policy</span></div></div>
             <div><div class="skill-group-label">endpoint_management</div><div class="tags"><span class="tag">Microsoft Intune</span><span class="tag">Autopilot</span><span class="tag">SCCM</span><span class="tag">SOE Imaging</span><span class="tag">MDM (iOS/Android)</span><span class="tag">JAMF</span><span class="tag">Patch Management</span></div></div>
@@ -421,8 +479,8 @@
 <!-- EDUCATION -->
 <section id="education">
     <div class="container">
-        <div class="section-label">// education</div>
-        <h2>Academic Background</h2>
+        <div class="section-label reveal">// education</div>
+        <h2 class="reveal delay-100">Academic Background</h2>
         <div class="edu-cards">
             <div class="edu-card">
                 <div class="edu-icon">MIT</div>
@@ -439,20 +497,20 @@
 <!-- CERTIFICATIONS -->
 <section id="certifications">
     <div class="container">
-        <div class="section-label">// certifications</div>
-        <h2>Certs &amp; Memberships</h2>
+        <div class="section-label reveal">// certifications</div>
+        <h2 class="reveal delay-100">Certs &amp; Memberships</h2>
         <p class="cert-group-lbl">professional_memberships</p>
-        <div class="certs">
+        <div class="certs reveal">
             <div class="cert"><span class="cert-ico">🏅</span><div><div class="cert-name">Member — Australian Computer Society (ACS)</div><div class="cert-meta">ICT Professional Body · Australia</div></div></div>
             <div class="cert"><span class="cert-ico">✅</span><div><div class="cert-name">ACS Skills Assessment — Positive Outcome</div><div class="cert-meta">Computer Network and Systems Engineer</div></div></div>
         </div>
         <p class="cert-group-lbl">microsoft</p>
-        <div class="certs">
+        <div class="certs reveal">
             <div class="cert"><span class="cert-ico">☁️</span><div><div class="cert-name">Microsoft Azure Fundamentals (AZ-900)</div><div class="cert-meta">Microsoft · Issued Feb 2026</div><div class="cert-id">ID: T18LMQYHIGSR</div></div></div>
             <div class="cert" style="border-color:rgba(251,191,36,0.15);"><span class="cert-ico">🔄</span><div><div class="cert-name">Microsoft MD-102: Endpoint Administrator</div><div class="badge-inprogress">in_progress</div></div></div>
         </div>
         <p class="cert-group-lbl">it_service</p>
-        <div class="certs">
+        <div class="certs reveal">
             <div class="cert"><span class="cert-ico">🎧</span><div><div class="cert-name">IT Service Desk: Customer Service Fundamentals</div><div class="cert-meta">NASBA · Issued Jul 2024</div></div></div>
         </div>
         <p class="cert-group-lbl">linux_series (linkedin_learning · 2020)</p>
@@ -471,10 +529,10 @@
 <!-- PROJECTS -->
 <section id="projects">
     <div class="container">
-        <div class="section-label">// projects</div>
-        <h2>Academic Projects</h2>
+        <div class="section-label reveal">// projects</div>
+        <h2 class="reveal delay-100">Academic Projects</h2>
         <div class="project-cards">
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="project-header">
                     <span class="project-title">CNN Solution to Estimate Elderly Excessive Daytime Sleepiness</span>
                     <span class="project-date">Nov 2020 – Feb 2021</span>
@@ -487,7 +545,7 @@
                 </div>
                 <div class="tags"><span class="tag">Machine Learning</span><span class="tag">CNN</span><span class="tag">Research & Analysis</span><span class="tag">Healthcare IT</span></div>
             </div>
-            <div class="project-card">
+            <div class="project-card reveal">
                 <div class="project-header">
                     <span class="project-title">Authenticating Multicopy Dynamic Data Possession in Cloud Computing</span>
                     <span class="project-date">Jan 2017 – May 2017</span>
@@ -507,29 +565,29 @@
 <!-- NOTES -->
 <section id="notes">
     <div class="container">
-        <div class="section-label">// notes</div>
-        <h2>Notes &amp; Articles</h2>
+        <div class="section-label reveal">// notes</div>
+        <h2 class="reveal delay-100">Notes &amp; Articles</h2>
         <p style="color:var(--text-muted);font-size:13px;margin-bottom:2rem;font-family:var(--mono);">/* documenting what I learn — from the field and from study */</p>
         <div class="notes-grid">
-            <div class="note-card">
+            <div class="note-card reveal-scale">
                 <div class="note-type" style="color:#6366f1;"><div class="note-dot" style="background:#6366f1;"></div>study_notes</div>
                 <div class="note-title">MD-102 Endpoint Administrator — Study Notes</div>
                 <div class="note-desc">Following my journey preparing for Microsoft MD-102 — Intune, Autopilot, compliance policies, and endpoint security.</div>
                 <div class="note-coming">// coming_soon</div>
             </div>
-            <div class="note-card">
+            <div class="note-card reveal-scale">
                 <div class="note-type" style="color:#10b981;"><div class="note-dot" style="background:#10b981;"></div>field_notes</div>
                 <div class="note-title">EFTPOS & POS Connectivity Troubleshooting Guide</div>
                 <div class="note-desc">Diagnosing SIM-based and LAN-based EFTPOS/POS issues from supporting retail enterprise clients at Fujitsu.</div>
                 <div class="note-coming">// coming_soon</div>
             </div>
-            <div class="note-card">
+            <div class="note-card reveal-scale">
                 <div class="note-type" style="color:#a78bfa;"><div class="note-dot" style="background:#a78bfa;"></div>how_to</div>
                 <div class="note-title">Setting Up Intune Autopilot from Scratch</div>
                 <div class="note-desc">Step-by-step walkthrough of configuring Windows Autopilot in Microsoft Intune — from device registration to first login.</div>
                 <div class="note-coming">// coming_soon</div>
             </div>
-            <div class="note-card">
+            <div class="note-card reveal-scale">
                 <div class="note-type" style="color:#fbbf24;"><div class="note-dot" style="background:#fbbf24;"></div>opinion</div>
                 <div class="note-title">ITIL in Real Life — What Actually Happens on the Service Desk</div>
                 <div class="note-desc">What ITIL teaches vs. what you actually deal with supporting 1,200+ users. Lessons from 5+ years in enterprise IT.</div>
@@ -542,8 +600,8 @@
 <!-- CONTACT -->
 <section id="contact">
     <div class="container">
-        <div class="section-label">// contact</div>
-        <h2>Get In Touch</h2>
+        <div class="section-label reveal">// contact</div>
+        <h2 class="reveal delay-100">Get In Touch</h2>
         <div class="contact-layout">
             <div class="contact-links">
                 <a href="mailto:chaudharybibek@gmail.com" class="contact-link"><span class="contact-link-icon">@</span>chaudharybibek@gmail.com</a>
@@ -597,5 +655,53 @@
         });
     }
 </script>
+
+<script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Animated stat counters
+    function animateCounter(el, target, suffix='') {
+        let start = 0;
+        const duration = 1200;
+        const step = (timestamp) => {
+            if (!start) start = timestamp;
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const val = Math.floor(progress * target);
+            el.textContent = val + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target + suffix;
+        };
+        requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const vals = entry.target.querySelectorAll('.stat-val');
+                vals[0] && animateCounter(vals[0], 5, '+');
+                vals[1] && animateCounter(vals[1], 2000, '+');
+                vals[2] && animateCounter(vals[2], 500, '+');
+                vals[3] && animateCounter(vals[3], 98, '%');
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) statsObserver.observe(statsEl);
+</script>
+
 </body>
-                        </html>
+</html>
