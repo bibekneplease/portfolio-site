@@ -426,11 +426,16 @@ h1::after {
 <!-- HERO -->
 <section id="hero">
     <div class="hero-bg"></div>
-    <canvas id="hero-canvas" style="position: absolute; inset: 0; z-index: 0; opacity: 0.55;"></canvas>
+    <div class="hero-bg-overlay"></div>
     
-    <div class="hero-content container">
-        <div class="hero-name-row">
-            <img src="assets/images/profile-pic.png" class="hero-profile-pic">
+    <canvas id="hero-canvas" style="position: absolute; inset: 0; z-index: 1; opacity: 0.55; pointer-events: none;"></canvas>
+
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+        <div class="hero-tag reveal">// available_for_opportunities</div>
+        <div class="hero-name-row reveal">
+            <img src="assets/images/profile-pic.png" alt="Bibek" class="hero-profile-pic">
+            
             <h1 data-text="Bibek Chaudhary">Bibek<br><em>Chaudhary</em></h1>
         </div>
         <div class="hero-role">// Desktop Support Engineer · IT Infrastructure &amp; Endpoint Specialist</div>
@@ -697,124 +702,107 @@ h1::after {
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-inner">
-        <div class="footer-name">Bibek Chaudhary · IT Support &amp; Infrastructure Professional</div>
-        <div class="footer-meta">
-            sydney, nsw &nbsp;·&nbsp;
-            <a href="mailto:chaudharybibek@gmail.com">chaudharybibek@gmail.com</a> &nbsp;·&nbsp;
-            <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" rel="noopener noreferrer">linkedin</a>
+    <div class="container" style="text-align: center; padding: 4rem 0; border-top: 1px solid var(--border);">
+        <div class="footer-name" style="font-weight: 600; margin-bottom: 0.5rem;">Bibek Chaudhary | IT Support & Infrastructure Professional</div>
+        <div style="font-size: 13px; color: var(--text-muted);">
+            Sydney, NSW &nbsp;·&nbsp;
+            <a href="mailto:chaudharybibek@gmail.com" style="color: var(--accent); text-decoration: none;">Email</a> &nbsp;·&nbsp;
+            <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">LinkedIn</a>
         </div>
-        <div style="font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:8px;">&copy; <span id="year"></span> · all rights reserved</div>
+        <div style="font-family: var(--mono); font-size: 10px; color: var(--text-muted); margin-top: 2.5rem; opacity: 0.6;">
+            &copy; 2026 · SYSTEM STATUS: OPERATIONAL
+        </div>
     </div>
 </footer>
 
 <script src="scripts/main.js"></script>
 <script>
-    // Dynamic year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme toggle
+    // 1. THEME TOGGLE
     function toggleTheme() {
-        const isLight = document.body.classList.toggle('light');
+        const body = document.body;
         const btn = document.getElementById('theme-btn');
-        if (btn) btn.textContent = isLight ? '☀️ light' : '🌙 dark';
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    }
-    if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light');
-        const btn = document.getElementById('theme-btn');
-        if (btn) btn.textContent = '☀️ light';
+        if (body.classList.contains('light')) {
+            body.classList.remove('light');
+            btn.textContent = '🌙 dark';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.classList.add('light');
+            btn.textContent = '☀️ light';
+            localStorage.setItem('theme', 'light');
+        }
     }
 
-    // Scroll reveal
+    // 2. SCROLL REVEAL
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
 
-    // Animated stat counters with quartic ease-out
-    function animateCounter(el, target, suffix='') {
-        const duration = 2000;
-        const startTime = performance.now();
-        const step = (now) => {
-            const progress = Math.min((now - startTime) / duration, 1);
-            const ease = 1 - Math.pow(1 - progress, 4);
-            el.textContent = Math.floor(ease * target) + suffix;
-            if (progress < 1) requestAnimationFrame(step);
-            else el.textContent = target + suffix;
-        };
-        requestAnimationFrame(step);
-    }
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const vals = entry.target.querySelectorAll('.stat-val');
-                if (vals[0]) animateCounter(vals[0], 5, '+');
-                if (vals[1]) animateCounter(vals[1], 2000, '+');
-                if (vals[2]) animateCounter(vals[2], 500, '+');
-                if (vals[3]) animateCounter(vals[3], 98, '%');
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-    const statsEl = document.querySelector('.hero-stats');
-    if (statsEl) statsObserver.observe(statsEl);
-(function() {
-    const canvas = document.getElementById('hero-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let W, H, nodes, animId;
-    const IT_SYMBOLS = ['{ }', '/>', '01', '[]', 'IP', 'TCP', 'API', 'DNS', 'SSD', 'RAM'];
-    const INDIGO = 'rgba(99,102,241,';
+    // 3. HERO CANVAS ANIMATION (Nodes & IT Symbols)
+    (function() {
+        const canvas = document.getElementById('hero-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let W, H, nodes;
+        const IT_SYMBOLS = ['{ }', '/>', '01', '[]', 'IP', 'TCP', 'API', 'DNS', 'RAM'];
+        const INDIGO = 'rgba(99,102,241,';
 
-    function resize() {
-        W = canvas.width = canvas.offsetWidth;
-        H = canvas.height = canvas.offsetHeight;
-        initNodes();
-    }
+        function resize() {
+            // Use offsetWidth/Height to ensure it fills the hero section container
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+            initNodes();
+        }
 
-    function initNodes() {
-        const count = Math.floor((W * H) / 14000);
-        nodes = Array.from({ length: count }, () => ({
-            x: Math.random() * W,
-            y: Math.random() * H,
-            vx: (Math.random() - 0.5) * 0.35,
-            vy: (Math.random() - 0.5) * 0.35,
-            r: Math.random() * 2 + 1,
-            label: Math.random() > 0.65 ? IT_SYMBOLS[Math.floor(Math.random() * IT_SYMBOLS.length)] : null,
-            pulse: Math.random() * Math.PI * 2,
-            pulseSpeed: 0.01 + Math.random() * 0.015,
-            alpha: 0.3 + Math.random() * 0.5,
-        }));
-    }
+        function initNodes() {
+            const count = Math.floor((W * H) / 14000);
+            nodes = Array.from({ length: count }, () => ({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                r: Math.random() * 2 + 1,
+                label: Math.random() > 0.65 ? IT_SYMBOLS[Math.floor(Math.random() * IT_SYMBOLS.length)] : null,
+                pulse: Math.random() * Math.PI * 2,
+                pulseSpeed: 0.01 + Math.random() * 0.015,
+                alpha: 0.3 + Math.random() * 0.5,
+            }));
+        }
 
-    function draw() {
-        ctx.clearRect(0, 0, W, H);
-        nodes.forEach(n => {
-            n.pulse += n.pulseSpeed;
-            const alpha = n.alpha * (0.7 + Math.sin(n.pulse) * 0.3);
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-            ctx.fillStyle = INDIGO + alpha + ')';
-            ctx.fill();
-            if (n.label) {
-                ctx.font = '9px monospace';
-                ctx.fillStyle = INDIGO + (alpha * 0.7) + ')';
-                ctx.fillText(n.label, n.x + 5, n.y + 3);
-            }
-            n.x += n.vx; n.y += n.vy;
-            if (n.x < 0 || n.x > W) n.vx *= -1;
-            if (n.y < 0 || n.y > H) n.vy *= -1;
-        });
-        animId = requestAnimationFrame(draw);
-    }
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            nodes.forEach(n => {
+                n.pulse += n.pulseSpeed;
+                const alpha = n.alpha * (0.7 + Math.sin(n.pulse) * 0.3);
+                
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                ctx.fillStyle = INDIGO + alpha + ')';
+                ctx.fill();
 
-    window.addEventListener('resize', resize);
-    resize();
-    draw();
-})();
+                if (n.label) {
+                    ctx.font = '10px monospace';
+                    ctx.fillStyle = INDIGO + (alpha * 0.7) + ')';
+                    ctx.fillText(n.label, n.x + 5, n.y + 3);
+                }
+
+                n.x += n.vx;
+                n.y += n.vy;
+
+                if (n.x < 0 || n.x > W) n.vx *= -1;
+                if (n.y < 0 || n.y > H) n.vy *= -1;
+            });
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+    })();
 </script>
 </body>
 </html>
