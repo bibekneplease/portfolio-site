@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,71 +92,14 @@
         h2 { font-size: 2.4rem; font-weight: 700; color: var(--text); margin-bottom: 3rem; letter-spacing: -0.02em; line-height: 1.15; }
 
         /* HERO */
-#hero { 
-    min-height: 100vh; 
-    display: flex; 
-    align-items: center; 
-    padding-top: 60px; 
-    position: relative; 
-    overflow: hidden; 
-}
-
-/* Updated with your new Unsplash image */
-.hero-bg { 
-    position: absolute; 
-    inset: 0; 
-    background-image: url('assets/images/conny-schneider-xuTJZ7uD7PI-unsplash.jpg'); 
-    background-size: cover; 
-    background-position: center; 
-    background-attachment: fixed; /* Adds a nice parallax effect when scrolling */
-}
-
-.hero-bg-overlay { 
-    position: absolute; 
-    inset: 0; 
-    /* Slightly darker gradient to make your white name "Bibek" pop against the blue lines */
-    background: linear-gradient(135deg, rgba(10,10,13,0.95) 0%, rgba(10,10,13,0.85) 55%, rgba(99,102,241,0.15) 100%); 
-}
-
-.hero-glow { 
-    position: absolute; 
-    width: 600px; 
-    height: 600px; 
-    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); 
-    top: 50%; 
-    left: 35%; 
-    transform: translate(-50%,-50%); 
-    pointer-events: none; 
-}
-
-.hero-content { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; width: 100%; }
-
-.hero-tag { 
-    display: inline-flex; 
-    align-items: center; 
-    gap: 8px; 
-    font-family: var(--mono); 
-    font-size: 11px; 
-    color: var(--indigo-bright); 
-    background: var(--indigo-dim); 
-    border: 1px solid rgba(99,102,241,0.25); 
-    padding: 5px 14px; 
-    border-radius: 20px; 
-    margin-bottom: 2rem; 
-    letter-spacing: 0.06em; 
-}
-
-.hero-tag::before { 
-    content: ''; 
-    width: 7px; 
-    height: 7px; 
-    border-radius: 50%; 
-    background: #4ade80; 
-    animation: blink 1.5s infinite; 
-    box-shadow: 0 0 6px #4ade80; 
-}
-
-@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+        #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 60px; position: relative; overflow: hidden; }
+        .hero-bg { position: absolute; inset: 0; background-image: url('assets/images/2022_10_13_16_48_IMG_3972.JPG'); background-size: cover; background-position: center 30%; }
+        .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,13,0.95) 0%, rgba(10,10,13,0.80) 55%, rgba(99,102,241,0.12) 100%); }
+        .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); top: 50%; left: 35%; transform: translate(-50%,-50%); pointer-events: none; }
+        .hero-content { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; width: 100%; }
+        .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--indigo-bright); background: var(--indigo-dim); border: 1px solid rgba(99,102,241,0.25); padding: 5px 14px; border-radius: 20px; margin-bottom: 2rem; letter-spacing: 0.06em; }
+        .hero-tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: blink 1.5s infinite; box-shadow: 0 0 6px #4ade80; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
         .hero-name-row { display: flex; align-items: center; gap: 1.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
         .hero-profile-pic { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--indigo); box-shadow: 0 0 0 6px rgba(99,102,241,0.12), 0 8px 32px rgba(0,0,0,0.5); flex-shrink: 0; }
         h1 { font-size: clamp(2.8rem,6vw,5rem); font-weight: 700; line-height: 1.05; color: var(--text); letter-spacing: -0.03em; }
@@ -703,7 +645,7 @@
 </footer>
 
 <script src="scripts/main.js"></script>
-    <script>
+<script>
     // 1. THEME TOGGLE
     function toggleTheme() {
         const body = document.body;
@@ -719,7 +661,7 @@
         }
     }
 
-    // 2. SCROLL REVEAL (Keeps the professional fade-in effects)
+    // 2. SCROLL REVEAL
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -727,14 +669,71 @@
             }
         });
     }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
-        revealObserver.observe(el);
-    });
+    // 3. HERO CANVAS ANIMATION (Nodes & IT Symbols)
+    (function() {
+        const canvas = document.getElementById('hero-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let W, H, nodes;
+        const IT_SYMBOLS = ['{ }', '/>', '01', '[]', 'IP', 'TCP', 'API', 'DNS', 'RAM', 'AI','VPN', 'GOOGLE'];
+        const INDIGO = 'rgba(99,102,241,';
 
-    // 3. CLEANUP
-    // The Hero Canvas animation has been removed to prioritize the 
-    // high-resolution Infrastructure Network background image.
-    </script>
+        function resize() {
+            // Use offsetWidth/Height to ensure it fills the hero section container
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+            initNodes();
+        }
+
+        function initNodes() {
+        // We reduce the count slightly because larger icons take up more space
+        const count = Math.floor((W * H) / 25000); 
+        nodes = Array.from({ length: count }, () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 4 + 2, // BOLDER DOTS: increased from 1px to 3-7px
+            label: Math.random() > 0.5 ? IT_SYMBOLS[Math.floor(Math.random() * IT_SYMBOLS.length)] : null,
+            pulse: Math.random() * Math.PI * 2,
+            pulseSpeed: 0.01 + Math.random() * 0.01,
+            alpha: 0.5 + Math.random() * 0.4, // HIGHER OPACITY
+        }));
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        nodes.forEach(n => {
+            n.pulse += n.pulseSpeed;
+            const alpha = n.alpha * (0.7 + Math.sin(n.pulse) * 0.3);
+            
+            // Larger, sharper dots
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r + 1.5, 0, Math.PI * 2);
+            ctx.fillStyle = INDIGO + (alpha * 0.6) + ')';
+            ctx.fill();
+
+            if (n.label) {
+                // High-visibility font settings
+                ctx.font = 'bold 18px "JetBrains Mono", monospace'; 
+                ctx.fillStyle = 'rgba(129, 140, 248, ' + (alpha * 0.9) + ')';
+                ctx.fillText(n.label, n.x + 10, n.y + 5);
+            }
+
+            n.x += n.vx;
+            n.y += n.vy;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+        });
+        requestAnimationFrame(draw);
+    }
+
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+    })();
+</script>
 </body>
 </html>
