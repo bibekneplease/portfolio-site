@@ -279,6 +279,34 @@
         .hero-content > *:nth-child(4){animation-delay:0.35s;}
         .hero-content > *:nth-child(5){animation-delay:0.45s;}
         .hero-content > *:nth-child(6){animation-delay:0.55s;}
+        /* ... existing styles ... */
+
+        /* PASTE THE NEW ANIMATION/GLITCH CSS HERE */
+        /* FLOATING PARTICLES */
+        @keyframes float1 { 0%,100%{transform:translateY(0) translateX(0);} 33%{transform:translateY(-18px) translateX(8px);} 66%{transform:translateY(10px) translateX(-6px);} }
+        /* ... (rest of the extra_css block) ... */
+
+    </style> ```
+
+---
+
+### 2. The Hero Section (HTML)
+Find the `<section id="hero">` block (near **line 351**). You need to make two changes here:
+1.  Add the `<canvas>` tag.
+2.  Update the `<h1>` tag with the `data-text` attribute.
+
+**Updated Hero Section:**
+```html
+<section id="hero">
+    <div class="hero-bg"></div>
+    <canvas id="hero-canvas"></canvas> <div class="hero-bg-overlay"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content container">
+        <div class="hero-tag">available for opportunities</div> <div class="hero-name-row">
+            <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="hero-profile-pic" onerror="this.style.display='none'">
+            <h1 data-text="Bibek Chaudhary">Bibek<br><em>Chaudhary</em></h1>
+        </div>
+        ...
     </style>
 </head>
 <body>
@@ -327,7 +355,8 @@
     <div class="hero-bg-overlay"></div>
     <div class="hero-glow"></div>
     <div class="hero-content container">
-        <div class="hero-tag">available for opportunities · sydney, nsw</div>
+        <canvas id="hero-canvas"></canvas>
+<div class="hero-tag">available for opportunities</div>
         <div class="hero-name-row">
             <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="hero-profile-pic" onerror="this.style.display='none'">
             <h1>Bibek<br><em>Chaudhary</em></h1>
@@ -597,7 +626,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-name">Bibek Chaudhary · IT Support &amp; Infrastructure Professional</div>
+        <div class="footer-name">Bibek Chaudhary | IT Support & Infrastructure Professional</div>
         <div class="footer-meta">
             sydney, nsw &nbsp;·&nbsp;
             <a href="mailto:chaudharybibek@gmail.com">chaudharybibek@gmail.com</a> &nbsp;·&nbsp;
