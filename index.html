@@ -357,7 +357,7 @@
     <div class="hero-bg"></div>
     <div class="hero-bg-overlay"></div>
     
-    <canvas id="hero-canvas" style="position: absolute; inset: 0; z-index: 1; opacity: 0.85; pointer-events: none;"></canvas>
+    <canvas id="hero-canvas" style="position: absolute; inset: 0; z-index: 1; opacity: 0.80; pointer-events: none;"></canvas>
 
     <div class="hero-glow"></div>
     <div class="hero-content">
@@ -709,18 +709,17 @@
             n.pulse += n.pulseSpeed;
             const alpha = n.alpha * (0.7 + Math.sin(n.pulse) * 0.3);
             
-            // DRAW LARGER NODES
+            // Larger, sharper dots
             ctx.beginPath();
-            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-            ctx.fillStyle = INDIGO + alpha + ')';
+            ctx.arc(n.x, n.y, n.r + 1.5, 0, Math.PI * 2);
+            ctx.fillStyle = INDIGO + (alpha * 0.6) + ')';
             ctx.fill();
 
-            // DRAW MUCH LARGER TEXT
             if (n.label) {
-                // FONT SIZE INCREASED to 22px and set to BOLD
-                ctx.font = 'bold 22px "JetBrains Mono", monospace'; 
-                ctx.fillStyle = INDIGO + (alpha * 0.9) + ')';
-                ctx.fillText(n.label, n.x + 12, n.y + 8);
+                // High-visibility font settings
+                ctx.font = 'bold 20px "JetBrains Mono", monospace'; 
+                ctx.fillStyle = 'rgba(129, 140, 248, ' + (alpha * 0.9) + ')';
+                ctx.fillText(n.label, n.x + 10, n.y + 5);
             }
 
             n.x += n.vx;
