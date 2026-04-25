@@ -368,7 +368,7 @@
     <div class="hero-bg"></div>
     <div class="hero-bg-overlay"></div>
     
-    <canvas id="hero-canvas" style="position: absolute; inset: 0; z-index: 1; opacity: 0.55; pointer-events: none;"></canvas>
+    <canvas id="hero-canvas" style="position: absolute; inset: 0; z-index: 1; opacity: 0.85; pointer-events: none;"></canvas>
 
     <div class="hero-glow"></div>
     <div class="hero-content">
@@ -699,45 +699,48 @@
         }
 
         function initNodes() {
-            const count = Math.floor((W * H) / 14000);
-            nodes = Array.from({ length: count }, () => ({
-                x: Math.random() * W,
-                y: Math.random() * H,
-                vx: (Math.random() - 0.5) * 0.35,
-                vy: (Math.random() - 0.5) * 0.35,
-                r: Math.random() * 2 + 1,
-                label: Math.random() > 0.65 ? IT_SYMBOLS[Math.floor(Math.random() * IT_SYMBOLS.length)] : null,
-                pulse: Math.random() * Math.PI * 2,
-                pulseSpeed: 0.01 + Math.random() * 0.015,
-                alpha: 0.3 + Math.random() * 0.5,
-            }));
-        }
+        // We reduce the count slightly because larger icons take up more space
+        const count = Math.floor((W * H) / 25000); 
+        nodes = Array.from({ length: count }, () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            r: Math.random() * 4 + 3, // BOLDER DOTS: increased from 1px to 3-7px
+            label: Math.random() > 0.5 ? IT_SYMBOLS[Math.floor(Math.random() * IT_SYMBOLS.length)] : null,
+            pulse: Math.random() * Math.PI * 2,
+            pulseSpeed: 0.01 + Math.random() * 0.01,
+            alpha: 0.5 + Math.random() * 0.4, // HIGHER OPACITY
+        }));
+    }
 
-        function draw() {
-            ctx.clearRect(0, 0, W, H);
-            nodes.forEach(n => {
-                n.pulse += n.pulseSpeed;
-                const alpha = n.alpha * (0.7 + Math.sin(n.pulse) * 0.3);
-                
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-                ctx.fillStyle = INDIGO + alpha + ')';
-                ctx.fill();
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+        nodes.forEach(n => {
+            n.pulse += n.pulseSpeed;
+            const alpha = n.alpha * (0.7 + Math.sin(n.pulse) * 0.3);
+            
+            // DRAW LARGER NODES
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+            ctx.fillStyle = INDIGO + alpha + ')';
+            ctx.fill();
 
-                if (n.label) {
-                    ctx.font = '10px monospace';
-                    ctx.fillStyle = INDIGO + (alpha * 0.7) + ')';
-                    ctx.fillText(n.label, n.x + 5, n.y + 3);
-                }
+            // DRAW MUCH LARGER TEXT
+            if (n.label) {
+                // FONT SIZE INCREASED to 22px and set to BOLD
+                ctx.font = 'bold 22px "JetBrains Mono", monospace'; 
+                ctx.fillStyle = INDIGO + (alpha * 0.9) + ')';
+                ctx.fillText(n.label, n.x + 12, n.y + 8);
+            }
 
-                n.x += n.vx;
-                n.y += n.vy;
-
-                if (n.x < 0 || n.x > W) n.vx *= -1;
-                if (n.y < 0 || n.y > H) n.vy *= -1;
-            });
-            requestAnimationFrame(draw);
-        }
+            n.x += n.vx;
+            n.y += n.vy;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
+        });
+        requestAnimationFrame(draw);
+    }
 
         window.addEventListener('resize', resize);
         resize();
