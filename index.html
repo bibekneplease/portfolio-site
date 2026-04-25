@@ -11,6 +11,9 @@
     <meta property="og:url" content="https://www.chaudharybibek.com.np">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bibek Chaudhary | Desktop Support Engineer">
+    <meta name="twitter:description" content="5+ years enterprise IT experience across Fujitsu, HPE and more. Based in Sydney, NSW.">
+    <meta name="twitter:image" content="assets/images/profile-pic.png">
     <title>Bibek Chaudhary | Desktop Support Engineer</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='4' fill='%236366f1'/><text y='.9em' font-size='52' font-family='monospace' font-weight='bold' fill='white' x='50%' text-anchor='middle' dominant-baseline='auto' dy='28'>BC</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,43 +38,24 @@
             --radius: 10px;
             --transition: 0.25s ease;
         }
-
-        /* LIGHT MODE */
         body.light {
-            --bg: #f5f5fa;
-            --bg2: #ffffff;
-            --bg3: #ededf5;
-            --bg4: #e8e8f0;
-            --border: rgba(0,0,0,0.07);
-            --border-hover: rgba(99,102,241,0.4);
-            --indigo: #4f46e5;
-            --indigo-bright: #6366f1;
-            --indigo-dim: rgba(79,70,229,0.07);
-            --text: #0a0a0f;
-            --text-muted: #6b7280;
-            --text-soft: #52525b;
-            --text-dim: #d4d4d8;
+            --bg: #f5f5fa; --bg2: #ffffff; --bg3: #ededf5; --bg4: #e8e8f0;
+            --border: rgba(0,0,0,0.07); --border-hover: rgba(99,102,241,0.4);
+            --indigo: #4f46e5; --indigo-bright: #6366f1; --indigo-dim: rgba(79,70,229,0.07);
+            --text: #0a0a0f; --text-muted: #6b7280; --text-soft: #52525b; --text-dim: #d4d4d8;
         }
         body.light header { background: rgba(245,245,250,0.92); }
-        body.light .hero-bg-overlay { background: linear-gradient(135deg, rgba(245,245,250,0.9) 0%, rgba(245,245,250,0.7) 60%, rgba(79,70,229,0.06) 100%); }
-        body.light .hero-stats { background: rgba(255,255,255,0.9); }
+        body.light .hero-bg-overlay { background: linear-gradient(135deg, rgba(245,245,250,0.92) 0%, rgba(245,245,250,0.75) 60%, rgba(79,70,229,0.06) 100%); }
+        body.light .hero-stats { background: rgba(255,255,255,0.92); }
         body.light input, body.light textarea { background: #fff; }
         body.light .job-list li, body.light .about-text { color: #52525b; }
         body.light .project-col-text { color: #52525b; }
         body.light .note-desc { color: #71717a; }
         body.light #mobile-menu { background: #fff; }
         body.light .photo-strip-label { color: #e5e7eb; }
+        body.light .rec-text { color: #52525b; }
 
-        /* THEME TOGGLE */
-        .theme-toggle {
-            background: none; border: 1px solid var(--border);
-            color: var(--text-muted); cursor: pointer;
-            border-radius: 6px; padding: 6px 12px;
-            font-family: var(--mono); font-size: 11px;
-            display: flex; align-items: center; gap: 6px;
-            transition: all var(--transition);
-            letter-spacing: 0.04em; white-space: nowrap;
-        }
+        .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer; border-radius: 6px; padding: 6px 12px; font-family: var(--mono); font-size: 11px; display: flex; align-items: center; gap: 6px; transition: all var(--transition); letter-spacing: 0.04em; white-space: nowrap; }
         .theme-toggle:hover { border-color: var(--indigo); color: var(--indigo); }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -83,17 +67,16 @@
 
         /* NAV */
         header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,13,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
-        .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-
-        /* Logo with profile pic */
+        .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
         .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid var(--indigo); }
-        .logo-text { font-family: var(--mono); font-size: 13px; color: var(--indigo); letter-spacing: 0.04em; }
+        .logo-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid var(--indigo); }
+        .logo-text { font-family: var(--mono); font-size: 15px; color: var(--indigo); letter-spacing: 0.04em; font-weight: 500; }
         .logo-text span { color: var(--text-muted); }
-
         nav ul { list-style: none; display: flex; gap: 1.75rem; }
-        nav a { font-family: var(--mono); font-size: 11.5px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.06em; transition: color var(--transition); }
+        nav a { font-family: var(--mono); font-size: 13px; color: var(--text-muted); text-decoration: none; letter-spacing: 0.05em; transition: color var(--transition); padding: 4px 0; position: relative; }
         nav a:hover { color: var(--indigo-bright); }
+        nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--indigo-bright); transition: width var(--transition); }
+        nav a:hover::after { width: 100%; }
         .nav-right { display: flex; align-items: center; gap: 10px; }
         #mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px; }
         #mobile-menu { display: none; flex-direction: column; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 1.25rem 2rem; gap: 1rem; }
@@ -104,7 +87,6 @@
         /* SECTIONS */
         section { padding: 7rem 2rem; }
         .container { max-width: 920px; margin: 0 auto; }
-
         .section-label { font-family: var(--mono); font-size: 11px; color: var(--indigo); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 10px; }
         .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--border-hover), transparent); }
         h2 { font-size: 2.4rem; font-weight: 700; color: var(--text); margin-bottom: 3rem; letter-spacing: -0.02em; line-height: 1.15; }
@@ -115,26 +97,22 @@
         .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,13,0.95) 0%, rgba(10,10,13,0.80) 55%, rgba(99,102,241,0.12) 100%); }
         .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); top: 50%; left: 35%; transform: translate(-50%,-50%); pointer-events: none; }
         .hero-content { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; width: 100%; }
-
         .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--indigo-bright); background: var(--indigo-dim); border: 1px solid rgba(99,102,241,0.25); padding: 5px 14px; border-radius: 20px; margin-bottom: 2rem; letter-spacing: 0.06em; }
         .hero-tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: blink 1.5s infinite; box-shadow: 0 0 6px #4ade80; }
         @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-
-        /* Hero profile — name + photo side by side */
-        .hero-name-row { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
-        .hero-profile-pic { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--indigo); box-shadow: 0 0 0 6px rgba(99,102,241,0.12), 0 8px 32px rgba(0,0,0,0.4); flex-shrink: 0; }
+        .hero-name-row { display: flex; align-items: center; gap: 1.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+        .hero-profile-pic { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--indigo); box-shadow: 0 0 0 6px rgba(99,102,241,0.12), 0 8px 32px rgba(0,0,0,0.5); flex-shrink: 0; }
         h1 { font-size: clamp(2.8rem,6vw,5rem); font-weight: 700; line-height: 1.05; color: var(--text); letter-spacing: -0.03em; }
         h1 em { color: var(--indigo-bright); font-style: normal; }
-
         .hero-role { font-family: var(--mono); font-size: 13px; color: var(--indigo-bright); letter-spacing: 0.08em; margin-bottom: 1rem; }
         .hero-sub { font-size: 1.05rem; color: var(--text-soft); max-width: 500px; margin-bottom: 2.5rem; font-weight: 400; line-height: 1.8; }
         .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 3.5rem; }
-
-        .btn-primary { background: var(--indigo); color: white; padding: 11px 28px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; transition: all var(--transition); font-family: var(--mono); border: 1px solid transparent; }
+        .btn-primary { background: var(--indigo); color: white; padding: 11px 28px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; transition: all var(--transition); font-family: var(--mono); }
         .btn-primary:hover { background: #4f52d4; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.3); }
         .btn-ghost { background: transparent; color: var(--text-soft); padding: 11px 28px; border-radius: 6px; text-decoration: none; font-size: 13px; border: 1px solid var(--border); transition: all var(--transition); font-family: var(--mono); }
         .btn-ghost:hover { border-color: var(--indigo); color: var(--indigo-bright); transform: translateY(-2px); }
-
+        .btn-cv { background: transparent; color: var(--indigo-bright); padding: 11px 28px; border-radius: 6px; text-decoration: none; font-size: 13px; border: 1px solid var(--indigo); transition: all var(--transition); font-family: var(--mono); }
+        .btn-cv:hover { background: var(--indigo-dim); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.15); }
         .hero-stats { display: flex; flex-wrap: wrap; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; max-width: 500px; background: rgba(10,10,13,0.7); backdrop-filter: blur(10px); }
         .stat { flex: 1; min-width: 110px; padding: 18px 22px; border-right: 1px solid var(--border); transition: background var(--transition); }
         .stat:last-child { border-right: none; }
@@ -149,14 +127,12 @@
         .about-text { font-size: 15.5px; color: var(--text-soft); line-height: 1.9; }
         .about-text strong { color: var(--text); font-weight: 600; }
         .about-text p + p { margin-top: 1rem; }
-
         .about-photo-card { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.25); transition: transform var(--transition), box-shadow var(--transition); }
         .about-photo-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(99,102,241,0.15); }
         .about-photo-card img { width: 100%; height: auto; object-fit: contain; display: block; }
         .about-photo-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,10,13,0.98) 50%); padding: 2.5rem 1.25rem 1.25rem; }
         .about-photo-caption p { font-family: var(--mono); font-size: 11.5px; color: #e4e4f0; text-shadow: 0 2px 8px rgba(0,0,0,1); font-weight: 500; }
         .about-photo-caption span { color: var(--indigo-bright); }
-
         .client-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem; }
         .client-chip { font-family: var(--mono); font-size: 11px; color: var(--text-muted); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; transition: all var(--transition); cursor: default; }
         .client-chip:hover { border-color: var(--indigo); color: var(--indigo-bright); background: var(--indigo-dim); }
@@ -165,15 +141,15 @@
         #recommendations { background: var(--bg); }
         .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
         @media (max-width: 680px) { .rec-grid { grid-template-columns: 1fr; } }
-        .rec-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; transition: all var(--transition); position: relative; }
+        .rec-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; transition: all var(--transition); position: relative; overflow: hidden; }
         .rec-card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(99,102,241,0.1); }
-        .rec-card::before { content: '\201C'; position: absolute; top: 1rem; right: 1.5rem; font-size: 3.5rem; color: var(--indigo-dim); font-family: Georgia, serif; line-height: 1; }
-        .rec-text { font-size: 14px; color: var(--text-soft); line-height: 1.8; margin-bottom: 1.25rem; font-style: italic; }
-        .rec-author { display: flex; align-items: center; gap: 10px; }
-        .rec-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--indigo-dim); border: 1px solid var(--border-hover); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; color: var(--indigo-bright); font-weight: 600; flex-shrink: 0; }
-        .rec-name { font-size: 13px; font-weight: 600; color: var(--text); }
-        .rec-role { font-family: var(--mono); font-size: 10.5px; color: var(--text-muted); margin-top: 1px; }
-        .rec-company { font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); margin-top: 1px; }
+        .rec-card::before { content: '\201C'; position: absolute; top: 0.5rem; right: 1.25rem; font-size: 4rem; color: var(--indigo-dim); font-family: Georgia, serif; line-height: 1; pointer-events: none; }
+        .rec-text { font-size: 14px; color: var(--text-soft); line-height: 1.85; margin-bottom: 1.5rem; font-style: italic; }
+        .rec-author { display: flex; align-items: center; gap: 12px; }
+        .rec-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--indigo-dim); border: 1px solid var(--border-hover); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 12px; color: var(--indigo-bright); font-weight: 700; flex-shrink: 0; }
+        .rec-name { font-size: 13.5px; font-weight: 600; color: var(--text); }
+        .rec-role { font-family: var(--mono); font-size: 10.5px; color: var(--text-muted); margin-top: 2px; }
+        .rec-company { font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); margin-top: 2px; }
 
         /* EXPERIENCE */
         #experience { background: var(--bg2); }
@@ -190,18 +166,16 @@
         .job-list li strong { color: var(--text); font-weight: 600; }
         .achievement { color: #fbbf24 !important; }
         .achievement::before { content: '★' !important; color: #fbbf24 !important; }
-
-        /* Photo strip */
         .photo-strip { margin-top: 1.75rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); position: relative; height: 240px; }
         .photo-strip img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; display: block; transition: transform 0.6s ease; }
         .photo-strip:hover img { transform: scale(1.03); }
-        .photo-strip-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,13,0.92) 0%, rgba(10,10,13,0.3) 50%, transparent 100%); }
-        .photo-strip-label { position: absolute; bottom: 14px; left: 18px; font-family: var(--mono); font-size: 11.5px; color: #e4e4f0; text-shadow: 0 2px 8px rgba(0,0,0,1); font-weight: 500; }
+        .photo-strip-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,13,0.95) 0%, rgba(10,10,13,0.3) 50%, transparent 100%); }
+        .photo-strip-label { position: absolute; bottom: 14px; left: 18px; font-family: var(--mono); font-size: 11.5px; color: #e4e4f0; text-shadow: 0 2px 10px rgba(0,0,0,1); font-weight: 500; }
         .photo-strip-label span { color: var(--indigo-bright); }
 
         /* SKILLS */
         #skills { background: var(--bg); }
-        .skill-groups { display: flex; flex-direction: column; gap: 2rem; }
+        .skill-groups { display: flex; flex-direction: column; gap: 1rem; }
         .skill-group { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.75rem; transition: border-color var(--transition); }
         .skill-group:hover { border-color: var(--border-hover); }
         .skill-group-label { font-family: var(--mono); font-size: 10.5px; color: var(--indigo-bright); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
@@ -313,7 +287,7 @@
 <header>
     <div class="nav-inner">
         <a href="#hero" class="logo-wrap">
-            <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="logo-avatar">
+            <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="logo-avatar" onerror="this.style.display='none'">
             <span class="logo-text">bc<span>@sydney ~</span></span>
         </a>
         <nav>
@@ -358,11 +332,12 @@
             <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="hero-profile-pic" onerror="this.style.display='none'">
             <h1>Bibek<br><em>Chaudhary</em></h1>
         </div>
-        <div class="hero-role">// Desktop Support Engineer · IT Infrastructure & Endpoint Specialist</div>
+        <div class="hero-role">// Desktop Support Engineer · IT Infrastructure &amp; Endpoint Specialist</div>
         <p class="hero-sub">5+ years keeping enterprise systems running across Fujitsu, HPE and more. Supporting 500+ users, managing 2,000+ endpoints — always at 98% SLA.</p>
         <div class="hero-btns">
             <a href="#contact" class="btn-primary">hire_me()</a>
             <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" class="btn-ghost">linkedin →</a>
+            <a href="assets/Bibek_Chaudhary_Resume.pdf" download class="btn-cv">⬇ download cv</a>
         </div>
         <div class="hero-stats">
             <div class="stat"><div class="stat-val">5+</div><div class="stat-lbl">Yrs Exp</div></div>
@@ -424,7 +399,7 @@
                 </div>
             </div>
             <div class="rec-card reveal delay-300">
-                <p class="rec-text">"Bibek is an extremely helpful person, with a can-do and never-give-it-up attitude... he learned everything quickly and helped to make our daily lives easier. He also spent days or weeks in the data center during the relocation project. Thank you for all of your help, Bibek."</p>
+                <p class="rec-text">"Bibek is an extremely helpful person, with a can-do and never-give-it-up attitude. He learned everything quickly and helped make our daily lives easier — including spending days in the data center during the relocation project. Thank you for all your help, Bibek."</p>
                 <div class="rec-author">
                     <div class="rec-avatar">ZR</div>
                     <div>
@@ -546,9 +521,7 @@
             <span class="cert-ico">🐧</span>
             <div style="flex:1;">
                 <div class="cert-name" style="margin-bottom:10px;">Linux Administration — Full Series</div>
-                <div class="linux-tags">
-                    <span class="tag">Learning Linux CLI</span><span class="tag">Overview & Installation</span><span class="tag">Files & Permissions</span><span class="tag">User & Group Management</span><span class="tag">Storage Systems</span><span class="tag">Network Configuration</span><span class="tag">Package Management (CentOS)</span><span class="tag">Shells & Processes</span><span class="tag">Desktops & Remote Access</span><span class="tag">File Sharing Services</span><span class="tag">Kernels & Logging</span><span class="tag">Learning CentOS</span><span class="tag">LPIC-1 & Linux+ Prep</span><span class="tag">RHCSA (EX200) Prep</span>
-                </div>
+                <div class="linux-tags"><span class="tag">Learning Linux CLI</span><span class="tag">Overview & Installation</span><span class="tag">Files & Permissions</span><span class="tag">User & Group Management</span><span class="tag">Storage Systems</span><span class="tag">Network Configuration</span><span class="tag">Package Management (CentOS)</span><span class="tag">Shells & Processes</span><span class="tag">Desktops & Remote Access</span><span class="tag">File Sharing Services</span><span class="tag">Kernels & Logging</span><span class="tag">Learning CentOS</span><span class="tag">LPIC-1 & Linux+ Prep</span><span class="tag">RHCSA (EX200) Prep</span></div>
             </div>
         </div>
     </div>
@@ -561,10 +534,7 @@
         <h2 class="reveal delay-100">Academic Projects</h2>
         <div class="project-cards">
             <div class="project-card reveal">
-                <div class="project-header">
-                    <span class="project-title">CNN Solution to Estimate Elderly Excessive Daytime Sleepiness</span>
-                    <span class="project-date">Nov 2020 – Feb 2021</span>
-                </div>
+                <div class="project-header"><span class="project-title">CNN Solution to Estimate Elderly Excessive Daytime Sleepiness</span><span class="project-date">Nov 2020 – Feb 2021</span></div>
                 <div class="project-org">Charles Sturt University · Individual Project</div>
                 <div class="project-grid">
                     <div><div class="project-col-label">objective</div><div class="project-col-text">Estimate excessive daytime sleepiness in elderly people using Convolutional Neural Networks and assess quality-of-life impact.</div></div>
@@ -574,10 +544,7 @@
                 <div class="tags"><span class="tag">Machine Learning</span><span class="tag">CNN</span><span class="tag">Research & Analysis</span><span class="tag">Healthcare IT</span></div>
             </div>
             <div class="project-card reveal delay-100">
-                <div class="project-header">
-                    <span class="project-title">Authenticating Multicopy Dynamic Data Possession in Cloud Computing</span>
-                    <span class="project-date">Jan 2017 – May 2017</span>
-                </div>
+                <div class="project-header"><span class="project-title">Authenticating Multicopy Dynamic Data Possession in Cloud Computing</span><span class="project-date">Jan 2017 – May 2017</span></div>
                 <div class="project-org">East West Institute of Technology, Bangalore · Team of 3</div>
                 <div class="project-grid">
                     <div><div class="project-col-label">objective</div><div class="project-col-text">Enable dynamic multi-copy cloud data storage with enhanced file security and corruption prevention.</div></div>
@@ -613,9 +580,9 @@
         <div class="contact-layout">
             <div class="contact-links reveal-left">
                 <a href="mailto:chaudharybibek@gmail.com" class="contact-link"><span class="contact-link-icon">@</span>chaudharybibek@gmail.com</a>
-                <a href="tel:0449900443" class="contact-link"><span class="contact-link-icon">#</span>0449 900 443</a>
                 <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" class="contact-link"><span class="contact-link-icon">in</span>linkedin.com/in/bibekchaudhary</a>
                 <a href="https://github.com/bibekneplease" target="_blank" class="contact-link"><span class="contact-link-icon">gh</span>github.com/bibekneplease</a>
+                <a href="assets/Bibek_Chaudhary_Resume.pdf" download class="contact-link"><span class="contact-link-icon">↓</span>download resume (pdf)</a>
             </div>
             <form action="https://formspree.io/f/xreryawg" method="POST" class="reveal-right">
                 <input type="text" name="name" placeholder="name" required>
@@ -630,93 +597,69 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-name">Bibek Chaudhary | IT Support & Infrastructure Professional</div>
+        <div class="footer-name">Bibek Chaudhary · IT Support &amp; Infrastructure Professional</div>
         <div class="footer-meta">
             sydney, nsw &nbsp;·&nbsp;
             <a href="mailto:chaudharybibek@gmail.com">chaudharybibek@gmail.com</a> &nbsp;·&nbsp;
             <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" rel="noopener noreferrer">linkedin</a>
         </div>
-        <div style="font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:8px;">&copy; 2026 · all rights reserved</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:8px;">&copy; <span id="year"></span> · all rights reserved</div>
     </div>
 </footer>
 
+<script src="scripts/main.js"></script>
 <script>
-    // 1. Set dynamic year and text in footer
-    const yearDisplay = document.getElementById('year');
-    if (yearDisplay) {
-        yearDisplay.textContent = new Date().getFullYear();
-    }
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 2. Theme toggle logic with persistence
+    // Theme toggle
     function toggleTheme() {
         const isLight = document.body.classList.toggle('light');
         const btn = document.getElementById('theme-btn');
         if (btn) btn.textContent = isLight ? '☀️ light' : '🌙 dark';
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
     }
-
-    // Initialize theme on load
     if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light');
         const btn = document.getElementById('theme-btn');
         if (btn) btn.textContent = '☀️ light';
     }
 
-    // 3. General Scroll Reveal (for text and cards)
+    // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => revealObserver.observe(el));
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
-        revealObserver.observe(el);
-    });
-
-    // 4. Optimized Stat Counter Logic
-    function animateCounter(el, target, suffix = '') {
-        let start = 0;
-        const duration = 2000; // 2 seconds for a premium feel
+    // Animated stat counters with quartic ease-out
+    function animateCounter(el, target, suffix='') {
+        const duration = 2000;
         const startTime = performance.now();
-
-        const step = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Quartic ease-out for a smooth finish
+        const step = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
             const ease = 1 - Math.pow(1 - progress, 4);
-            const currentValue = Math.floor(ease * target);
-            
-            el.textContent = currentValue + suffix;
-
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                el.textContent = target + suffix;
-            }
+            el.textContent = Math.floor(ease * target) + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = target + suffix;
         };
         requestAnimationFrame(step);
     }
-
-    // Trigger counters when the hero-stats section is 20% visible
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const vals = entry.target.querySelectorAll('.stat-val');
-                // Maps your specific enterprise metrics
-                if (vals[0]) animateCounter(vals[0], 5, '+');     // Years Exp
-                if (vals[1]) animateCounter(vals[1], 2000, '+');  // Endpoints
-                if (vals[2]) animateCounter(vals[2], 500, '+');   // Users Supported
-                if (vals[3]) animateCounter(vals[3], 98, '%');    // SLA/CSAT
+                if (vals[0]) animateCounter(vals[0], 5, '+');
+                if (vals[1]) animateCounter(vals[1], 2000, '+');
+                if (vals[2]) animateCounter(vals[2], 500, '+');
+                if (vals[3]) animateCounter(vals[3], 98, '%');
                 statsObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
-
-    const statsSection = document.querySelector('.hero-stats');
-    if (statsSection) statsObserver.observe(statsSection);
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) statsObserver.observe(statsEl);
 </script>
 </body>
 </html>
