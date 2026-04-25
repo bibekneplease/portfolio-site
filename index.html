@@ -93,14 +93,71 @@
         h2 { font-size: 2.4rem; font-weight: 700; color: var(--text); margin-bottom: 3rem; letter-spacing: -0.02em; line-height: 1.15; }
 
         /* HERO */
-        #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 60px; position: relative; overflow: hidden; }
-        .hero-bg { position: absolute; inset: 0; background-image: url('assets/images/2022_10_13_16_48_IMG_3972.JPG'); background-size: cover; background-position: center 30%; }
-        .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,13,0.95) 0%, rgba(10,10,13,0.80) 55%, rgba(99,102,241,0.12) 100%); }
-        .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); top: 50%; left: 35%; transform: translate(-50%,-50%); pointer-events: none; }
-        .hero-content { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; width: 100%; }
-        .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; color: var(--indigo-bright); background: var(--indigo-dim); border: 1px solid rgba(99,102,241,0.25); padding: 5px 14px; border-radius: 20px; margin-bottom: 2rem; letter-spacing: 0.06em; }
-        .hero-tag::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: blink 1.5s infinite; box-shadow: 0 0 6px #4ade80; }
-        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+#hero { 
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    padding-top: 60px; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* Updated with your new Unsplash image */
+.hero-bg { 
+    position: absolute; 
+    inset: 0; 
+    background-image: url('assets/images/conny-schneider-xuTJZ7uD7PI-unsplash.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; /* Adds a nice parallax effect when scrolling */
+}
+
+.hero-bg-overlay { 
+    position: absolute; 
+    inset: 0; 
+    /* Slightly darker gradient to make your white name "Bibek" pop against the blue lines */
+    background: linear-gradient(135deg, rgba(10,10,13,0.95) 0%, rgba(10,10,13,0.85) 55%, rgba(99,102,241,0.15) 100%); 
+}
+
+.hero-glow { 
+    position: absolute; 
+    width: 600px; 
+    height: 600px; 
+    background: radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%); 
+    top: 50%; 
+    left: 35%; 
+    transform: translate(-50%,-50%); 
+    pointer-events: none; 
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 920px; margin: 0 auto; width: 100%; }
+
+.hero-tag { 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    font-family: var(--mono); 
+    font-size: 11px; 
+    color: var(--indigo-bright); 
+    background: var(--indigo-dim); 
+    border: 1px solid rgba(99,102,241,0.25); 
+    padding: 5px 14px; 
+    border-radius: 20px; 
+    margin-bottom: 2rem; 
+    letter-spacing: 0.06em; 
+}
+
+.hero-tag::before { 
+    content: ''; 
+    width: 7px; 
+    height: 7px; 
+    border-radius: 50%; 
+    background: #4ade80; 
+    animation: blink 1.5s infinite; 
+    box-shadow: 0 0 6px #4ade80; 
+}
+
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
         .hero-name-row { display: flex; align-items: center; gap: 1.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
         .hero-profile-pic { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--indigo); box-shadow: 0 0 0 6px rgba(99,102,241,0.12), 0 8px 32px rgba(0,0,0,0.5); flex-shrink: 0; }
         h1 { font-size: clamp(2.8rem,6vw,5rem); font-weight: 700; line-height: 1.05; color: var(--text); letter-spacing: -0.03em; }
