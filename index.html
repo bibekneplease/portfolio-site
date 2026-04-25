@@ -640,69 +640,83 @@
     </div>
 </footer>
 
-<script src="scripts/main.js"></script>
 <script>
-    // Theme toggle
-    function toggleTheme() {
-        const body = document.body;
-        const btn = document.getElementById('theme-btn');
-        if (body.classList.contains('light')) {
-            body.classList.remove('light');
-            btn.textContent = '🌙 dark';
-            localStorage.setItem('theme', 'dark');
-        } else {
-            body.classList.add('light');
-            btn.textContent = '☀️ light';
-            localStorage.setItem('theme', 'light');
-        }
-    }
-    if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light');
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('theme-btn');
-            if (btn) btn.textContent = '☀️ light';
-        });
+    // 1. Set dynamic year and text in footer
+    const yearDisplay = document.getElementById('year');
+    if (yearDisplay) {
+        yearDisplay.textContent = new Date().getFullYear();
     }
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    // 2. Theme toggle logic with persistence
+    function toggleTheme() {
+        const isLight = document.body.classList.toggle('light');
+        const btn = document.getElementById('theme-btn');
+        if (btn) btn.textContent = isLight ? '☀️ light' : '🌙 dark';
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    }
+
+    // Initialize theme on load
+    if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light');
+        const btn = document.getElementById('theme-btn');
+        if (btn) btn.textContent = '☀️ light';
+    }
+
+    // 3. General Scroll Reveal (for text and cards)
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+    }, { threshold: 0.15 });
 
-    // Animated stat counters
-    function animateCounter(el, target, suffix='') {
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // 4. Optimized Stat Counter Logic
+    function animateCounter(el, target, suffix = '') {
         let start = 0;
-        const duration = 1400;
-        const step = (timestamp) => {
-            if (!start) start = timestamp;
-            const progress = Math.min((timestamp - start) / duration, 1);
-            const ease = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.floor(ease * target) + suffix;
-            if (progress < 1) requestAnimationFrame(step);
-            else el.textContent = target + suffix;
+        const duration = 2000; // 2 seconds for a premium feel
+        const startTime = performance.now();
+
+        const step = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Quartic ease-out for a smooth finish
+            const ease = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.floor(ease * target);
+            
+            el.textContent = currentValue + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                el.textContent = target + suffix;
+            }
         };
         requestAnimationFrame(step);
     }
+
+    // Trigger counters when the hero-stats section is 20% visible
     const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const vals = entry.target.querySelectorAll('.stat-val');
-                if (vals[0]) animateCounter(vals[0], 5, '+');
-                if (vals[1]) animateCounter(vals[1], 2000, '+');
-                if (vals[2]) animateCounter(vals[2], 500, '+');
-                if (vals[3]) animateCounter(vals[3], 98, '%');
+                // Maps your specific enterprise metrics
+                if (vals[0]) animateCounter(vals[0], 5, '+');     // Years Exp
+                if (vals[1]) animateCounter(vals[1], 2000, '+');  // Endpoints
+                if (vals[2]) animateCounter(vals[2], 500, '+');   // Users Supported
+                if (vals[3]) animateCounter(vals[3], 98, '%');    // SLA/CSAT
                 statsObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
-    const statsEl = document.querySelector('.hero-stats');
-    if (statsEl) statsObserver.observe(statsEl);
+    }, { threshold: 0.2 });
+
+    const statsSection = document.querySelector('.hero-stats');
+    if (statsSection) statsObserver.observe(statsSection);
 </script>
 </body>
 </html>
