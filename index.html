@@ -55,6 +55,20 @@
         body.light .photo-strip-label { color: #e5e7eb; }
         body.light .rec-text { color: #52525b; }
 
+
+        /* TEAL ACCENT OVERRIDE */
+        :root {
+            --indigo: #0d9488;
+            --indigo-bright: #2dd4bf;
+            --indigo-dim: rgba(13,148,136,0.12);
+            --border-hover: rgba(13,148,136,0.45);
+        }
+        body.light {
+            --indigo: #0f766e;
+            --indigo-bright: #0d9488;
+            --indigo-dim: rgba(15,118,110,0.08);
+            --border-hover: rgba(15,118,110,0.4);
+        }
         .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer; border-radius: 6px; padding: 6px 12px; font-family: var(--mono); font-size: 11px; display: flex; align-items: center; gap: 6px; transition: all var(--transition); letter-spacing: 0.04em; white-space: nowrap; }
         .theme-toggle:hover { border-color: var(--indigo); color: var(--indigo); }
 
@@ -85,7 +99,7 @@
         @media (max-width: 820px) { nav { display: none; } #mobile-toggle { display: block; } }
 
         /* SECTIONS */
-        section { padding: 7rem 2rem; }
+        section { padding: 8.5rem 2rem; }
         .container { max-width: 920px; margin: 0 auto; }
         .section-label { font-family: var(--mono); font-size: 11px; color: var(--indigo); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 10px; }
         .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--border-hover), transparent); }
@@ -155,7 +169,7 @@
         /* EXPERIENCE */
         #experience { background: var(--bg2); }
         .timeline { display: flex; flex-direction: column; gap: 16px; }
-        .job { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 2.25rem; transition: all var(--transition); }
+        .job { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.25rem 2.5rem; transition: all var(--transition); }
         .job:hover { border-color: var(--border-hover); box-shadow: 0 8px 32px rgba(99,102,241,0.08); transform: translateY(-2px); }
         .job-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
         .job-title { font-size: 1.05rem; font-weight: 600; color: var(--text); }
@@ -211,7 +225,7 @@
         /* PROJECTS */
         #projects { background: var(--bg2); }
         .project-cards { display: flex; flex-direction: column; gap: 18px; }
-        .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 2.25rem; transition: all var(--transition); }
+        .project-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.25rem 2.5rem; transition: all var(--transition); }
         .project-card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(99,102,241,0.1); }
         .project-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 5px; }
         .project-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.4; }
@@ -363,6 +377,40 @@
             animation: shimmer 3s infinite linear;
         }
         @keyframes shimmer { 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
+
+        /* HERO SUB2 */
+        .hero-sub2 { font-family: var(--mono); font-size: 11.5px; color: var(--text-muted); letter-spacing: 0.08em; margin-bottom: 1rem; margin-top: -0.5rem; }
+
+        /* FEATURED WORK */
+        #featured { background: var(--bg); }
+        .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        @media (max-width: 720px) { .featured-grid { grid-template-columns: 1fr; } }
+        .featured-card { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); aspect-ratio: 4/3; transition: all var(--transition); cursor: default; }
+        .featured-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(13,148,136,0.15); }
+        .featured-card img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.6s ease; }
+        .featured-card:hover img { transform: scale(1.06); }
+        .featured-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,13,0.95) 0%, rgba(10,10,13,0.4) 55%, transparent 100%); }
+        .featured-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem; }
+        .featured-card-tag { font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+        .featured-card-title { font-size: 14px; font-weight: 600; color: #f0f0f5; line-height: 1.4; }
+
+        /* CASE STUDY PROJECT CARD */
+        .case-study { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.25rem 2.5rem; margin-bottom: 18px; transition: all var(--transition); }
+        .case-study:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(13,148,136,0.1); }
+        .case-study-badge { display: inline-block; font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); background: var(--indigo-dim); border: 1px solid rgba(13,148,136,0.25); padding: 3px 10px; border-radius: 20px; margin-bottom: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+        .case-study-title { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; line-height: 1.3; }
+        .case-study-org { font-family: var(--mono); font-size: 12px; color: var(--text-muted); margin-bottom: 1.75rem; }
+        .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        @media (max-width: 580px) { .case-study-grid { grid-template-columns: 1fr; } }
+        .case-study-block-label { font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; border-bottom: 1px solid var(--indigo-dim); padding-bottom: 5px; }
+        .case-study-block-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.75; }
+        .case-study-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .case-study-list li { font-size: 13.5px; color: var(--text-soft); display: flex; gap: 10px; line-height: 1.6; }
+        .case-study-list li::before { content: '▸'; color: var(--indigo-bright); flex-shrink: 0; margin-top: 2px; }
+        .case-study-list li strong { color: var(--text); font-weight: 600; }
+        .case-study-outcome { background: var(--indigo-dim); border: 1px solid rgba(13,148,136,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem; }
+        .case-study-outcome-label { font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
+        .case-study-outcome-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.7; }
     </style>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
@@ -389,6 +437,7 @@
                 <li><a href="#experience">experience</a></li>
                 <li><a href="#skills">skills</a></li>
                 <li><a href="#certifications">certs</a></li>
+                <li><a href="#featured">work</a></li>
                 <li><a href="#projects">projects</a></li>
                 <li><a href="#notes">notes</a></li>
                 <li><a href="#contact">contact</a></li>
@@ -407,6 +456,7 @@
         <a href="#experience" onclick="document.getElementById('mobile-menu').classList.remove('open')">experience</a>
         <a href="#skills" onclick="document.getElementById('mobile-menu').classList.remove('open')">skills</a>
         <a href="#certifications" onclick="document.getElementById('mobile-menu').classList.remove('open')">certs</a>
+        <a href="#featured" onclick="document.getElementById('mobile-menu').classList.remove('open')">work</a>
         <a href="#projects" onclick="document.getElementById('mobile-menu').classList.remove('open')">projects</a>
         <a href="#notes" onclick="document.getElementById('mobile-menu').classList.remove('open')">notes</a>
         <a href="#contact" onclick="document.getElementById('mobile-menu').classList.remove('open')">contact</a>
@@ -425,7 +475,8 @@
             <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="hero-profile-pic" onerror="this.style.display='none'">
             <h1 data-text="Bibek Chaudhary">Bibek<br><em>Chaudhary</em></h1>
         </div>
-        <div class="hero-role">// Desktop Support Engineer · IT Infrastructure &amp; Endpoint Specialist</div>
+        <div class="hero-role">// IT Support &amp; Infrastructure Professional</div>
+        <div class="hero-sub2">Enterprise Support &nbsp;·&nbsp; End User Computing &nbsp;·&nbsp; Data Centre Operations</div>
         <p class="hero-sub">5+ years keeping enterprise systems running across Fujitsu, HPE and more. Supporting 500+ users, managing 2,000+ endpoints — always at 98% SLA.</p>
         <div class="hero-btns">
             <a href="#contact" class="btn-primary">hire_me()</a>
@@ -620,12 +671,81 @@
     </div>
 </section>
 
+
+<!-- FEATURED WORK -->
+<section id="featured">
+    <div class="container">
+        <div class="section-label reveal">// featured_work</div>
+        <h2 class="reveal delay-100">In the Field</h2>
+        <div class="featured-grid">
+            <div class="featured-card reveal delay-100">
+                <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary">
+                <div class="featured-card-overlay"></div>
+                <div class="featured-card-body">
+                    <div class="featured-card-tag">// profile</div>
+                    <div class="featured-card-title">Desktop Support Engineer · Sydney, NSW</div>
+                </div>
+            </div>
+            <div class="featured-card reveal delay-200">
+                <img src="assets/images/2022_10_13_16_48_IMG_3972.JPG" alt="Server room work" style="object-position: center 20%;">
+                <div class="featured-card-overlay"></div>
+                <div class="featured-card-body">
+                    <div class="featured-card-tag">// data_centre</div>
+                    <div class="featured-card-title">Infrastructure & Server Operations · HPE Rhodes</div>
+                </div>
+            </div>
+            <div class="featured-card reveal delay-300">
+                <img src="assets/images/2022_10_28_17_31_IMG_3989.JPG" alt="HPE Aruba presentation">
+                <div class="featured-card-overlay"></div>
+                <div class="featured-card-body">
+                    <div class="featured-card-tag">// presenting</div>
+                    <div class="featured-card-title">Speaker · HPE Aruba Event · Sydney</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
     <div class="container">
         <div class="section-label reveal">// projects</div>
         <h2 class="reveal delay-100">Academic Projects</h2>
         <div class="project-cards">
+
+            <!-- CASE STUDY 1 -->
+            <div class="case-study reveal">
+                <div class="case-study-badge">// enterprise_project · HPE · Oct 2022 – July 2024</div>
+                <div class="case-study-title">Enterprise Site Migration &amp; Network Infrastructure Consolidation</div>
+                <div class="case-study-org">Hewlett Packard Enterprise · Rhodes, NSW</div>
+                <div class="case-study-grid">
+                    <div>
+                        <div class="case-study-block-label">challenge</div>
+                        <div class="case-study-block-text">Support a full site consolidation involving complex network and infrastructure migration while maintaining 100% operational continuity for 500+ users across the APAC region.</div>
+                    </div>
+                    <div>
+                        <div class="case-study-block-label">responsibilities</div>
+                        <ul class="case-study-list">
+                            <li>Assisted with <strong>SD-WAN migration</strong> activities during cutover windows</li>
+                            <li>Supported <strong>Juniper Networks</strong> router-related tasks</li>
+                            <li>Supported <strong>HPE Aruba Networks</strong> switching infrastructure activities</li>
+                            <li>Lift-and-shift of racks, hardware relocation and rack organisation</li>
+                            <li>Patch cabling, structured cable management</li>
+                            <li>Assisted with switch cutover support</li>
+                            <li>Coordinated with engineers during critical migration windows</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="case-study-outcome">
+                    <div class="case-study-outcome-label">// outcome</div>
+                    <div class="case-study-outcome-text">Successfully completed site consolidation with <strong>minimal downtime</strong> and uninterrupted business operations throughout the transition. Recognised by the Systems Engineer team for reliability and proactive support during critical migration phases.</div>
+                </div>
+                <div class="tags" style="margin-top:1.25rem;">
+                    <span class="tag">SD-WAN</span><span class="tag">Juniper Networks</span><span class="tag">HPE Aruba</span><span class="tag">Network Migration</span><span class="tag">Data Centre</span><span class="tag">Cable Management</span><span class="tag">Infrastructure</span>
+                </div>
+            </div>
+
+
             <div class="project-card reveal">
                 <div class="project-header"><span class="project-title">CNN Solution to Estimate Elderly Excessive Daytime Sleepiness</span><span class="project-date">Nov 2020 – Feb 2021</span></div>
                 <div class="project-org">Charles Sturt University · Individual Project</div>
