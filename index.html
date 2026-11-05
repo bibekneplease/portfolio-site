@@ -826,18 +826,50 @@
     // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme toggle
-    function toggleTheme() {
-        const isLight = document.body.classList.toggle('light');
-        const btn = document.getElementById('theme-btn');
-        if (btn) btn.textContent = isLight ? '☀️ light' : '🌙 dark';
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+ 
+// ========================================
+// CORPORATE THEME MANAGEMENT
+// ========================================
+
+function applyTheme(theme) {
+    const isLight = theme === 'light';
+
+    document.body.classList.toggle('light', isLight);
+
+    const btn = document.getElementById('theme-btn');
+
+    if (btn) {
+        btn.textContent = isLight ? '🌙 dark' : '☀️ light';
+
+        btn.setAttribute(
+            'aria-label',
+            isLight ? 'Switch to dark theme' : 'Switch to light theme'
+        );
     }
-    if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light');
-        const btn = document.getElementById('theme-btn');
-        if (btn) btn.textContent = '☀️ light';
+
+    try {
+        localStorage.setItem('theme', theme);
+    } catch (error) {
+        console.warn('Unable to save theme preference.');
     }
+}
+
+function toggleTheme() {
+    const isCurrentlyLight = document.body.classList.contains('light');
+    applyTheme(isCurrentlyLight ? 'dark' : 'light');
+}
+
+// Restore saved theme; default to corporate light
+let savedTheme = 'light';
+
+try {
+    savedTheme = localStorage.getItem('theme') || 'light';
+} catch (error) {
+    savedTheme = 'light';
+}
+
+applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
 
     // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
