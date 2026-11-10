@@ -307,3 +307,81 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2
     margin: .65rem auto 1.7rem;
     line-height: 1.6;
 }
+
+
+/* Enterprise ticker: make every brand recognisable, not just a faint icon */
+.client-logo-ticker {
+    align-items: center;
+    padding: 1.35rem 0;
+    border-color: var(--border);
+}
+.client-logo-track {
+    align-items: stretch;
+    gap: clamp(1.5rem, 3.2vw, 3rem);
+}
+.client-logo-item {
+    flex-direction: column;
+    justify-content: center;
+    gap: .55rem;
+    min-width: 132px;
+    height: 88px;
+    padding: .55rem .75rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg3, rgba(255,255,255,.035));
+}
+.client-logo-item img {
+    display: block;
+    width: 116px;
+    height: 40px;
+    max-width: 116px;
+    max-height: 40px;
+    object-fit: contain;
+    opacity: 1;
+    filter: none;
+}
+.client-logo-item > span:not(.client-wordmark):not(.client-name-only) {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
+    border: 0;
+    font: 600 .76rem/1.2 var(--sans, Arial, sans-serif);
+    color: var(--text-soft, var(--text));
+}
+.client-logo-item .client-name-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+    color: #e2231a;
+}
+.client-logo-caption {
+    display: inline !important;
+    font: 600 .76rem/1.2 var(--sans, Arial, sans-serif);
+    color: var(--text-soft, var(--text));
+}
+.client-logo-item.logo-fallback img { display: none; }
+.client-logo-item.logo-fallback > span:not(.client-name-only) {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: nowrap;
+    border: 0;
+    font: 700 .9rem/1.2 var(--sans, Arial, sans-serif);
+    color: var(--text-soft, var(--text));
+}
+@media (max-width: 680px) {
+    .client-logo-item { min-width: 116px; height: 82px; }
+    .client-logo-item img { width: 100px; height: 34px; max-width: 100px; max-height: 34px; }
+}
