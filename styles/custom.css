@@ -1,41 +1,114 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 body \{\
-    font-family: 'Arial', sans-serif;\
-    line-height: 1.6;\
-    margin: 0;\
-    padding: 0;\
-\}\
-\
-.fullscreen \{\
-    min-height: 100vh;\
-    display: flex;\
-    align-items: center;\
-    justify-content: center;\
-    text-align: center;\
-\}\
-\
-/* Hero bounce animation */\
-.scroll-down \{\
-    animation: bounce 2s infinite;\
-\}\
-\
-@keyframes bounce \{\
-    0%, 20%, 50%, 80%, 100% \{ transform: translateY(0); \}\
-    40% \{ transform: translateY(-10px); \}\
-    60% \{ transform: translateY(-5px); \}\
-\}\
-\
-/* Timeline events */\
-.timeline .event \{\
-    margin-bottom: 20px;\
-\}\
-\
-/* Links hover */\
-a:hover \{ text-decoration: underline; \}\
+/* =========================================================
+   BIBEK CHAUDHARY — CUSTOM CSS
+   Additional utilities and compatibility styles
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--sans, Arial, sans-serif);
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+}
+
+.fullscreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.scroll-down {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.timeline .event {
+    margin-bottom: 20px;
+}
+
+a {
+    transition: color 0.2s ease;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+#mobile-toggle {
+    display: none;
+}
+
+#mobile-menu {
+    display: none;
+}
+
+#mobile-menu.open {
+    display: flex;
+}
+
+@media (max-width: 820px) {
+    .fullscreen {
+        min-height: auto;
+        padding: 5rem 1.5rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .fullscreen {
+        padding: 4rem 1rem;
+    }
+
+    .scroll-down {
+        animation-duration: 2.5s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
 }
