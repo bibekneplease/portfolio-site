@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const stats = statsContainer.querySelectorAll(".stat-val");
 
         const startStats = () => {
-            if (stats[0]) animateCounter(stats[0], 5, "+");
+            if (stats[0]) animateCounter(stats[0], 4, "+");
             if (stats[1]) animateCounter(stats[1], 2000, "+");
             if (stats[2]) animateCounter(stats[2], 500, "+");
             if (stats[3]) animateCounter(stats[3], 98, "%");
