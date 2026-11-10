@@ -19,18 +19,8 @@
     stage.dataset.tone = section.id === "recommendations" ? "reviews" :
       section.id === "featured" ? "work" : section.id;
     stage.setAttribute("aria-hidden", "true");
-    const sectionLabels = {
-      about: "PROFILE / 01",
-      recommendations: "ENDORSEMENTS / 02",
-      experience: "CAREER TIMELINE / 03",
-      skills: "TECH STACK / 04",
-      certifications: "CREDENTIALS / 05",
-      featured: "FIELD OPERATIONS / 06",
-      projects: "BUILD LAB / 07",
-      notes: "KNOWLEDGE BASE / 08",
-      contact: "CONNECT / 09"
-    };
-    stage.innerHTML = '<span class="parallax-orb"></span><span class="parallax-ring"></span><span class="parallax-beam"></span><div class="parallax-hud"><span>SPATIAL INTERFACE</span><strong>' + (sectionLabels[section.id] || "SYSTEM / ACTIVE") + '</strong><span>DEPTH: ENABLED · TRACKING: ON</span></div>';
+    // Keep the decorative spatial background, but do not render diagnostic HUD text.
+    stage.innerHTML = '<span class="parallax-orb"></span><span class="parallax-ring"></span><span class="parallax-beam"></span>';
     section.prepend(stage);
 
     section.querySelectorAll(cardSelector).forEach(card => {
