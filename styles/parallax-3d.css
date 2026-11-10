@@ -332,3 +332,67 @@ header nav a { white-space: nowrap; font-size: clamp(10px, .85vw, 13px); }
 @media (prefers-reduced-motion: reduce) {
   .parallax-stage::before, .tech-network i { animation: none !important; }
 }
+
+
+/* Field Notes visual language: calm charcoal, teal ambience, editorial surfaces */
+:root {
+  --bg: #080d12;
+  --bg2: #0f1920;
+  --bg3: #14232b;
+  --border: rgba(179,215,218,.13);
+  --border-hover: rgba(85,224,194,.42);
+  --text: #edf7f6;
+  --text-muted: #a2b7b8;
+  --text-soft: #c8d8d7;
+  --text-dim: #789093;
+  --teal: #55e0c2;
+  --teal-bright: #72f0d3;
+  --teal-dim: rgba(85,224,194,.12);
+}
+html { background: #080d12; }
+body {
+  background:
+    radial-gradient(ellipse 58% 38% at 92% 4%, rgba(12,170,145,.13), transparent 72%),
+    radial-gradient(ellipse 52% 42% at 0% 54%, rgba(23,111,138,.10), transparent 75%),
+    radial-gradient(ellipse 55% 35% at 85% 94%, rgba(12,170,145,.07), transparent 75%),
+    #080d12 !important;
+  color: #edf7f6;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .22;
+  background-image: radial-gradient(rgba(85,224,194,.45) .7px, transparent .9px);
+  background-size: 27px 27px;
+  mask-image: radial-gradient(ellipse at 52% 40%, #000 0%, rgba(0,0,0,.55) 55%, transparent 90%);
+}
+body > * { position: relative; z-index: 1; }
+header {
+  background: rgba(8,13,18,.82) !important;
+  border-bottom-color: rgba(179,215,218,.13) !important;
+  backdrop-filter: blur(18px);
+}
+.parallax-stage { display: none !important; }
+.parallax-depth-card {
+  background: linear-gradient(145deg, rgba(24,42,48,.72), rgba(10,18,24,.82));
+  border-color: rgba(179,215,218,.14);
+  box-shadow: 0 15px 45px rgba(0,0,0,.18);
+}
+.parallax-depth-card:hover {
+  border-color: rgba(85,224,194,.42);
+  box-shadow: 0 22px 60px rgba(0,0,0,.28), 0 0 35px rgba(85,224,194,.06);
+}
+section[id]:not(#hero) {
+  border-color: rgba(179,215,218,.11);
+}
+a { text-underline-offset: 4px; }
+:focus-visible {
+  outline: 2px solid #72f0d3;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { opacity: .12; }
+}
