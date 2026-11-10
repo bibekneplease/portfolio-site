@@ -1,0 +1,37 @@
+{
+  "articles": [
+    {
+      "id": "eftpos-pos-connectivity",
+      "title": "EFTPOS & POS Connectivity Troubleshooting Guide",
+      "category": "field_notes",
+      "categoryLabel": "FIELD NOTES",
+      "description": "A structured diagnostic workflow for SIM-based and LAN-based payment terminals: power, signal, DHCP, DNS, routing, provider connectivity and safe escalation.",
+      "icon": "⌁",
+      "status": "review",
+      "readingTime": "Draft · 10 min",
+      "tags": ["EFTPOS", "POS", "retail", "LAN", "SIM", "DHCP", "DNS", "payments"]
+    },
+    {
+      "id": "intune-autopilot",
+      "title": "Setting Up Intune Autopilot from Scratch",
+      "category": "how_to",
+      "categoryLabel": "HOW-TO",
+      "description": "A practical walkthrough covering device registration, deployment profiles, Entra ID join, the Enrollment Status Page and first sign-in.",
+      "icon": "▣",
+      "status": "upcoming",
+      "readingTime": "Coming soon",
+      "tags": ["Microsoft Intune", "Autopilot", "Windows", "Entra ID", "endpoint"]
+    },
+    {
+      "id": "itil-in-real-life",
+      "title": "ITIL in Real Life — What Actually Happens on the Service Desk",
+      "category": "opinion",
+      "categoryLabel": "FIELD PERSPECTIVE",
+      "description": "Where the ITIL framework meets the reality of incident queues, SLA clocks, competing priorities, escalations and user expectations.",
+      "icon": "◎",
+      "status": "upcoming",
+      "readingTime": "Coming soon",
+      "tags": ["ITIL", "service desk", "incident management", "SLA", "enterprise IT"]
+    }
+  ]
+}
