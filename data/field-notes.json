@@ -7,9 +7,19 @@
       "categoryLabel": "FIELD NOTES",
       "description": "A structured diagnostic workflow for SIM-based and LAN-based payment terminals: power, signal, DHCP, DNS, routing, provider connectivity and safe escalation.",
       "icon": "⌁",
-      "status": "review",
-      "readingTime": "Draft · 10 min",
-      "tags": ["EFTPOS", "POS", "retail", "LAN", "SIM", "DHCP", "DNS", "payments"]
+      "status": "published",
+      "readingTime": "Published · 8 min",
+      "tags": [
+        "EFTPOS",
+        "POS",
+        "retail",
+        "LAN",
+        "SIM",
+        "DHCP",
+        "DNS",
+        "payments"
+      ],
+      "url": "articles/eftpos-pos-connectivity.html"
     },
     {
       "id": "intune-autopilot",
@@ -18,9 +28,16 @@
       "categoryLabel": "HOW-TO",
       "description": "A practical walkthrough covering device registration, deployment profiles, Entra ID join, the Enrollment Status Page and first sign-in.",
       "icon": "▣",
-      "status": "upcoming",
-      "readingTime": "Coming soon",
-      "tags": ["Microsoft Intune", "Autopilot", "Windows", "Entra ID", "endpoint"]
+      "status": "published",
+      "readingTime": "Published · 9 min",
+      "tags": [
+        "Microsoft Intune",
+        "Autopilot",
+        "Windows",
+        "Entra ID",
+        "endpoint"
+      ],
+      "url": "articles/intune-autopilot.html"
     },
     {
       "id": "itil-in-real-life",
@@ -29,9 +46,16 @@
       "categoryLabel": "FIELD PERSPECTIVE",
       "description": "Where the ITIL framework meets the reality of incident queues, SLA clocks, competing priorities, escalations and user expectations.",
       "icon": "◎",
-      "status": "upcoming",
-      "readingTime": "Coming soon",
-      "tags": ["ITIL", "service desk", "incident management", "SLA", "enterprise IT"]
+      "status": "published",
+      "readingTime": "Published · 7 min",
+      "tags": [
+        "ITIL",
+        "service desk",
+        "incident management",
+        "SLA",
+        "enterprise IT"
+      ],
+      "url": "articles/itil-in-real-life.html"
     }
   ]
 }
