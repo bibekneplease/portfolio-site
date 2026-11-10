@@ -19,8 +19,10 @@
     stage.dataset.tone = section.id === "recommendations" ? "reviews" :
       section.id === "featured" ? "work" : section.id;
     stage.setAttribute("aria-hidden", "true");
-    // Keep the decorative spatial background, but do not render diagnostic HUD text.
-    stage.innerHTML = '<span class="parallax-orb"></span><span class="parallax-ring"></span><span class="parallax-beam"></span>';
+    // Subtle IT-inspired network: connected nodes and data points, with no labels or HUD.
+    stage.innerHTML = '<div class="tech-network" aria-hidden="true">' +
+      '<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>' +
+      '</div>';
     section.prepend(stage);
 
     section.querySelectorAll(cardSelector).forEach(card => {
