@@ -25,8 +25,8 @@
     section.querySelectorAll(cardSelector).forEach(card => {
       card.classList.add("parallax-depth-card");
     });
-    navLinks.filter(link => link.getAttribute("href") === "#" + section.id)
-      .forEach(link => activeLinks.set(section.id, link));
+    const matchingLinks = navLinks.filter(link => link.getAttribute("href") === "#" + section.id);
+    if (matchingLinks.length) activeLinks.set(section.id, matchingLinks);
   });
 
   if (reducedMotion.matches) return;
@@ -109,10 +109,10 @@
   if ("IntersectionObserver" in window && activeLinks.size) {
     const navObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        const link = activeLinks.get(entry.target.id);
-        if (link && entry.isIntersecting) {
+        const links = activeLinks.get(entry.target.id);
+        if (links && entry.isIntersecting) {
           navLinks.forEach(item => item.classList.remove("parallax-active-link"));
-          link.classList.add("parallax-active-link");
+          links.forEach(link => link.classList.add("parallax-active-link"));
         }
       });
     }, { rootMargin: "-25% 0px -60% 0px", threshold: 0 });
