@@ -399,3 +399,69 @@ header nav { display:none !important; }
   .showcase-track { animation:none; }
   .showcase-card { transition:none; transform:none; }
 }
+
+
+/* Persistent 50/50 portfolio shell.
+   The preview rail stays fixed while the portfolio content scrolls in the left pane. */
+@media (min-width:821px) {
+  html { scroll-padding-top: 78px; }
+  body { overflow-x:hidden; }
+  header { width:50vw; max-width:50vw; }
+  header .nav-inner { padding-left:clamp(16px,3vw,44px); padding-right:clamp(16px,2vw,28px); }
+  header .nav-right { margin-left:auto; }
+  #hero {
+    width:50vw; max-width:50vw; min-height:100svh; height:100svh;
+    display:flex; align-items:center; justify-content:flex-start;
+    padding:100px clamp(18px,3.5vw,56px) 36px;
+    overflow:hidden;
+  }
+  #hero .hero-content { width:100%; max-width:100%; margin:0; }
+  #hero .hero-sub { max-width:100%; }
+  #hero .hero-stats { max-width:100%; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #hero .stat { border-bottom:1px solid var(--border); }
+  body > section:not(#hero) {
+    width:50vw; max-width:50vw; min-height:100svh;
+    margin:0; padding:100px clamp(18px,3.5vw,56px) 64px;
+    overflow:clip;
+  }
+  body > section:not(#hero) > .container {
+    width:100%; max-width:100%; margin:0; padding:0;
+  }
+  body > section:not(#hero) .about-grid,
+  body > section:not(#hero) .rec-grid,
+  body > section:not(#hero) .skills-grid,
+  body > section:not(#hero) .projects-grid,
+  body > section:not(#hero) .notes-grid {
+    grid-template-columns:minmax(0,1fr);
+  }
+  body > section:not(#hero) img { max-width:100%; height:auto; }
+  .experience-showcase {
+    position:fixed; z-index:90; top:0; right:0;
+    width:50vw; height:100svh; min-height:0;
+    padding:94px clamp(14px,2.6vw,40px) 24px;
+    background:
+      radial-gradient(ellipse at 65% 20%,rgba(45,212,191,.10),transparent 45%),
+      linear-gradient(145deg,rgba(6,18,25,.98),rgba(8,13,23,.98));
+    border-left:1px solid rgba(45,212,191,.20);
+  }
+  .showcase-window { border-radius:18px; }
+  .showcase-track { animation-duration:50s; }
+  .showcase-card { grid-template-columns:minmax(100px,32%) 1fr auto; }
+  .parallax-stage { pointer-events:none; }
+}
+@media (min-width:821px) and (max-width:1100px) {
+  #hero, body > section:not(#hero) { padding-left:22px; padding-right:22px; }
+  .experience-showcase { padding-left:16px; padding-right:16px; }
+  .showcase-card { grid-template-columns:28% 1fr auto; gap:10px; }
+  .showcase-card-copy small { font-size:8px; }
+}
+@media (max-width:820px) {
+  header { width:100%; max-width:100%; }
+  #hero { width:100%; max-width:100%; }
+  body > section:not(#hero) { width:100%; max-width:100%; }
+  .experience-showcase {
+    position:relative; top:auto; right:auto;
+    width:100%; height:390px; min-height:0;
+    border-left:0; background:transparent;
+  }
+}
