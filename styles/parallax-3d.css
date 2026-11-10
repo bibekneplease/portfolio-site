@@ -251,3 +251,20 @@ header nav { display: none !important; }
 @media (max-width: 820px) {
   .container { max-width: 920px; margin-left: auto; margin-right: auto; }
 }
+
+
+/* Restore the original horizontal header navigation */
+.spatial-nav { display: none !important; }
+header nav { display: block !important; }
+header nav ul { display: flex; align-items: center; gap: clamp(10px, 1.35vw, 22px); }
+header nav a { white-space: nowrap; font-size: clamp(10px, .85vw, 13px); }
+.container { max-width: 960px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 1100px) {
+  header nav { display: none !important; }
+  #mobile-toggle { display: inline-flex !important; }
+}
+@media (min-width: 1101px) {
+  #mobile-toggle { display: none !important; }
+  #mobile-menu { display: none !important; }
+}
