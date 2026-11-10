@@ -7,7 +7,7 @@
 html { scroll-padding-top: 82px; }
 section[id] { position: relative; isolation: isolate; }
 section[id]:not(#hero) { overflow: clip; }
-section[id] > :not(.parallax-stage) { position: relative; z-index: 1; }
+section[id]:not(#hero) > :not(.parallax-stage) { position: relative; z-index: 1; }
 .parallax-stage {
   --px: 0;
   --py: 0;
