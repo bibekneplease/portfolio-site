@@ -56,6 +56,83 @@
         "enterprise IT"
       ],
       "url": "articles/itil-in-real-life.html"
+    },
+    {
+      "id": "switch-troubleshooting",
+      "title": "Enterprise Switch Troubleshooting: Ports, VLANs & Layer 2",
+      "category": "network_data_centre",
+      "categoryLabel": "NETWORK & DATA CENTRE",
+      "description": "A structured workflow for link-state, interface errors, VLAN, PoE and Layer 2 incidents, with safe Cisco IOS show-command examples.",
+      "icon": "⌁",
+      "status": "published",
+      "readingTime": "Published · 9 min",
+      "tags": [
+        "switching",
+        "Cisco",
+        "VLAN",
+        "PoE",
+        "STP",
+        "Ethernet"
+      ],
+      "url": "articles/switch-troubleshooting.html"
+    },
+    {
+      "id": "router-troubleshooting",
+      "title": "Router Troubleshooting: Gateways, Routing & WAN",
+      "category": "network_data_centre",
+      "categoryLabel": "NETWORK & DATA CENTRE",
+      "description": "Diagnose gateway reachability, routing, DHCP, DNS, WAN and VPN symptoms while separating local, upstream and provider faults.",
+      "icon": "⇄",
+      "status": "published",
+      "readingTime": "Published · 9 min",
+      "tags": [
+        "routing",
+        "WAN",
+        "VPN",
+        "DHCP",
+        "DNS",
+        "Cisco"
+      ],
+      "url": "articles/router-troubleshooting.html"
+    },
+    {
+      "id": "server-troubleshooting",
+      "title": "Data Centre Server Troubleshooting: Hardware & OS",
+      "category": "network_data_centre",
+      "categoryLabel": "NETWORK & DATA CENTRE",
+      "description": "A first-response guide to power, POST, RAID, storage, hardware health, resource pressure and out-of-band management alerts.",
+      "icon": "▤",
+      "status": "published",
+      "readingTime": "Published · 10 min",
+      "tags": [
+        "servers",
+        "RAID",
+        "iLO",
+        "iDRAC",
+        "hardware",
+        "virtualisation"
+      ],
+      "url": "articles/server-troubleshooting.html"
+    },
+    {
+      "id": "data-centre-operations",
+      "title": "Data Centre Operations: Rack, Stack, Cabling & Change",
+      "category": "network_data_centre",
+      "categoryLabel": "NETWORK & DATA CENTRE",
+      "description": "Practical controls for rack and stack work, fibre and copper patching, SFPs, IDF/MDF checks, power and change records.",
+      "icon": "▦",
+      "status": "published",
+      "readingTime": "Published · 8 min",
+      "tags": [
+        "data centre",
+        "rack and stack",
+        "fibre",
+        "SFP",
+        "IDF",
+        "MDF",
+        "UPS"
+      ],
+      "url": "articles/data-centre-operations.html"
     }
   ]
 }
