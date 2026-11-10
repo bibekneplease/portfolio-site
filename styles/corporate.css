@@ -203,12 +203,12 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2
     height: auto;
     max-height: 34px;
     object-fit: contain;
-    filter: grayscale(1);
-    opacity: .76;
+    filter: none;
+    opacity: .88;
     transition: filter .2s ease, opacity .2s ease, transform .2s ease;
 }
 .client-logo-item:hover img {
-    filter: grayscale(0);
+    filter: none;
     opacity: 1;
     transform: translateY(-2px);
 }
