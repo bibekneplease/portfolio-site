@@ -235,6 +235,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
+    /* CLIENT LOGO FALLBACK — keep the ticker legible if a remote SVG is unavailable */
+    document.querySelectorAll(".client-logo-item img").forEach(image => {
+        image.addEventListener("error", () => {
+            image.closest(".client-logo-item")?.classList.add("logo-fallback");
+        }, { once: true });
+    });
+
     /* =====================================================
        DYNAMIC FOOTER YEAR
        ===================================================== */
