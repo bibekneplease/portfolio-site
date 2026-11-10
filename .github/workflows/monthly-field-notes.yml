@@ -1,0 +1,59 @@
+name: Monthly IT Field Notes editorial cycle
+
+on:
+  schedule:
+    # GitHub Actions cron uses UTC. Runs on the first day of each month.
+    - cron: "0 22 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  open-editorial-cycle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create monthly editorial checklist
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          month="$(date -u +'%B %Y')"
+          title="IT Field Notes — editorial cycle — $month"
+          body="$(cat <<'EOF'
+          ## Monthly IT Field Notes cycle
+
+          This workflow creates a review task only. It does **not** generate, approve, or publish articles automatically.
+
+          ### Editorial checklist
+          - [ ] Select one practical enterprise IT topic for this month.
+          - [ ] Prepare a balanced draft: technical explanation + real-world workflow + lessons learned.
+          - [ ] Verify technical claims against current vendor documentation.
+          - [ ] Remove employer, customer, site, asset, ticket, credential and payment-sensitive details.
+          - [ ] Check screenshots, diagrams and examples for confidential information.
+          - [ ] Complete technical and editorial review.
+          - [ ] Approve the draft explicitly.
+          - [ ] Publish by adding the approved article page and changing its catalogue entry to `status: "published"` with a valid relative `url`.
+          - [ ] Verify desktop/mobile layout, links, accessibility and metadata after deployment.
+
+          ### Editorial standards
+          - One article per month.
+          - Balanced technical depth and practical field context.
+          - No customer-identifying information or confidential employer procedures.
+          - No automatic publication. Human approval is mandatory.
+
+          ### Suggested next topics
+          - Intune compliance and device-enrolment troubleshooting
+          - DHCP/DNS symptoms in an enterprise LAN
+          - Windows profile and sign-in issues
+          - Service desk incident prioritisation and escalation
+          - Outlook mailbox and archive troubleshooting
+          EOF
+          )"
+          existing="$(gh issue list --repo "$GH_REPO" --state open --search "$title in:title" --json title --jq '.[].title')"
+          if [ -n "$existing" ]; then
+            echo "An open editorial issue already exists for $month."
+          else
+            gh issue create --repo "$GH_REPO" --title "$title" --body "$body"
+          fi
