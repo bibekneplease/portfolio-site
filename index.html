@@ -1,25 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10243e">
+
     <meta name="description" content="Bibek Chaudhary – Desktop Support Engineer & IT Infrastructure Specialist with 4+ years enterprise experience in Sydney, Australia.">
     <meta name="author" content="Bibek Chaudhary">
+
     <meta property="og:title" content="Bibek Chaudhary | Desktop Support Engineer">
     <meta property="og:description" content="4+ years enterprise IT experience across Fujitsu, HPE and more. Based in Sydney, NSW.">
-    <meta property="og:image" content="assets/images/profile-pic.png">
+    content="https://www.chaudharybibek.com.np/assets/images/profile-pic.png"
     <meta property="og:url" content="https://www.chaudharybibek.com.np">
     <meta property="og:type" content="website">
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bibek Chaudhary | Desktop Support Engineer">
     <meta name="twitter:description" content="4+ years enterprise IT experience across Fujitsu, HPE and more. Based in Sydney, NSW.">
-    <meta name="twitter:image" content="assets/images/profile-pic.png">
+    content="https://www.chaudharybibek.com.np/assets/images/profile-pic.png"
+
     <title>Bibek Chaudhary | Desktop Support Engineer</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='4' fill='%236366f1'/><text y='.9em' font-size='52' font-family='monospace' font-weight='bold' fill='white' x='50%' text-anchor='middle' dominant-baseline='auto' dy='28'>BC</text></svg>">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='4' fill='%230f766e'/><text y='.9em' font-size='52' font-family='monospace' font-weight='bold' fill='white' x='50%' text-anchor='middle' dy='28'>BC</text></svg>">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Original stylesheet -->
     <link rel="stylesheet" href="styles/custom.css">
-    <style>
-        :root {
+
+   
+    
+
+:root {
+        
             --bg: #0a0a0d;
             --bg2: #10101a;
             --bg3: #16161f;
@@ -412,6 +427,8 @@
         .case-study-outcome-label { font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
         .case-study-outcome-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.7; }
     </style>
+    <!-- Corporate theme -->
+    <link rel="stylesheet" href="styles/corporate.css">
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -421,7 +438,7 @@
         })(window, document, "clarity", "script", "wi849nsapm");
     </script>
 </head>
-<body>
+<body class="light">
 
 <!-- HEADER -->
 <header>
@@ -445,12 +462,16 @@
         </nav>
         <div class="nav-right">
             <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">🌙 dark</button>
-            <button id="mobile-toggle" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
+            <button id="mobile-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu">
                 <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
     </div>
-    <div id="mobile-menu">
+    <div id="mobile-menu" aria-label="Mobile navigation">
         <a href="#about" onclick="document.getElementById('mobile-menu').classList.remove('open')">about</a>
         <a href="#recommendations" onclick="document.getElementById('mobile-menu').classList.remove('open')">reviews</a>
         <a href="#experience" onclick="document.getElementById('mobile-menu').classList.remove('open')">experience</a>
@@ -475,16 +496,16 @@
             <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="hero-profile-pic" onerror="this.style.display='none'">
             <h1 data-text="Bibek Chaudhary">Bibek<br><em>Chaudhary</em></h1>
         </div>
-        <div class="hero-role">// IT Support &amp; Infrastructure Professional</div>
-        <div class="hero-sub2">Enterprise Support &nbsp;·&nbsp; End User Computing &nbsp;·&nbsp; Data Centre Operations</div>
-        <p class="hero-sub">4+ years keeping enterprise systems running across Fujitsu, HPE and more. Supporting 500+ users, managing 2,000+ endpoints — always at 98% SLA.</p>
+        <div class="hero-role">// Desktop Support Engineer · Endpoint &amp; Infrastructure</div>
+        <div class="hero-sub2">Microsoft 365 &nbsp;·&nbsp; Intune &amp; Autopilot &nbsp;·&nbsp; Active Directory &nbsp;·&nbsp; ITIL</div>
+        <p class="hero-sub">4+ years supporting enterprise environments across Fujitsu and HPE. 500+ users, 2,000+ managed endpoints, and 98% SLA compliance, from executive support to national infrastructure rollouts.</p>
         <div class="hero-btns">
             <a href="#contact" class="btn-primary">hire_me()</a>
             <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" class="btn-ghost">linkedin →</a>
             <a href="assets/Bibek_Chaudhary_Resume.pdf" download class="btn-cv">⬇ download cv</a>
         </div>
         <div class="hero-stats">
-            <div class="stat"><div class="stat-val">5+</div><div class="stat-lbl">Yrs Exp</div></div>
+            <div class="stat"><div class="stat-val">4+</div><div class="stat-lbl">Yrs Exp</div></div>
             <div class="stat"><div class="stat-val">2k+</div><div class="stat-lbl">Endpoints</div></div>
             <div class="stat"><div class="stat-val">500+</div><div class="stat-lbl">Users</div></div>
             <div class="stat"><div class="stat-val">98%</div><div class="stat-lbl">SLA</div></div>
@@ -810,7 +831,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-name">Bibek Chaudhary · IT Support &amp; Infrastructure Professional</div>
+        <div class="footer-name">Bibek Chaudhary · Desktop Support Engineer</div>
         <div class="footer-meta">
             sydney, nsw &nbsp;·&nbsp;
             <a href="mailto:chaudharybibek@gmail.com">chaudharybibek@gmail.com</a> &nbsp;·&nbsp;
@@ -825,18 +846,50 @@
     // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme toggle
-    function toggleTheme() {
-        const isLight = document.body.classList.toggle('light');
-        const btn = document.getElementById('theme-btn');
-        if (btn) btn.textContent = isLight ? '☀️ light' : '🌙 dark';
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+ 
+// ========================================
+// CORPORATE THEME MANAGEMENT
+// ========================================
+
+function applyTheme(theme) {
+    const isLight = theme === 'light';
+
+    document.body.classList.toggle('light', isLight);
+
+    const btn = document.getElementById('theme-btn');
+
+    if (btn) {
+        btn.textContent = isLight ? '🌙 dark' : '☀️ light';
+
+        btn.setAttribute(
+            'aria-label',
+            isLight ? 'Switch to dark theme' : 'Switch to light theme'
+        );
     }
-    if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light');
-        const btn = document.getElementById('theme-btn');
-        if (btn) btn.textContent = '☀️ light';
+
+    try {
+        localStorage.setItem('theme', theme);
+    } catch (error) {
+        console.warn('Unable to save theme preference.');
     }
+}
+
+function toggleTheme() {
+    const isCurrentlyLight = document.body.classList.contains('light');
+    applyTheme(isCurrentlyLight ? 'dark' : 'light');
+}
+
+// Restore saved theme; default to corporate light
+let savedTheme = 'light';
+
+try {
+    savedTheme = localStorage.getItem('theme') || 'light';
+} catch (error) {
+    savedTheme = 'light';
+}
+
+applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+
 
     // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
@@ -863,7 +916,7 @@
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const vals = entry.target.querySelectorAll('.stat-val');
-                if (vals[0]) animateCounter(vals[0], 5, '+');
+                if (vals[0]) animateCounter(vals[0], 4, '+');
                 if (vals[1]) animateCounter(vals[1], 2000, '+');
                 if (vals[2]) animateCounter(vals[2], 500, '+');
                 if (vals[3]) animateCounter(vals[3], 98, '%');
