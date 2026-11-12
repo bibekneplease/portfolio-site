@@ -447,3 +447,13 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2
 @media (prefers-reduced-motion: reduce) {
     .client-logo-card { transition: none; }
 }
+
+/* Additional client wordmarks use clear text treatments where a verified logo asset is not configured. */
+.client-logo-grid-additional { margin-top: .75rem; }
+.client-logo-wordmark.just { color: #222; font-size: 1.35rem; letter-spacing: -.04em; }
+.client-logo-wordmark.lululemon { color: #c8102e; font-size: 1.3rem; letter-spacing: -.04em; }
+.client-logo-wordmark.robeco { color: #00a0df; font-size: 1.5rem; }
+.client-logo-wordmark.target { color: #cc0000; font-size: 1.55rem; }
+.client-logo-wordmark.big { color: #2255a4; font-size: 1.7rem; letter-spacing: .12em; }
+.client-logo-wordmark.auspost { color: #dc1928; font-size: 1.1rem; letter-spacing: -.02em; }
+.client-logo-wordmark.mcd { color: #db0007; font-size: 2rem; }
