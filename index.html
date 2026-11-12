@@ -255,6 +255,14 @@
         .project-col-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.7; }
         .project-col-text strong { color: var(--text); font-weight: 600; }
 
+
+        /* DIRECT ACCESS TO THE INFRASTRUCTURE KNOWLEDGE BASE */
+        .field-notes-actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin:0 0 1.5rem; }
+        .field-notes-actions .field-notes-cta { display:inline-flex; align-items:center; gap:10px; background:var(--indigo); color:#fff; border:1px solid var(--indigo-bright); box-shadow:0 6px 22px rgba(13,148,136,.22); }
+        .field-notes-actions .field-notes-cta:hover { background:#0f766e; color:#fff; }
+        .field-notes-actions .field-notes-secondary { display:inline-flex; align-items:center; gap:8px; }
+        @media(max-width:520px){ .field-notes-actions { align-items:stretch; flex-direction:column; } .field-notes-actions a { justify-content:center; text-align:center; } }
+
         /* NOTES */
         #notes { background: var(--bg); }
         .notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -500,6 +508,7 @@
                 <li><a href="#featured">Work</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#notes">Notes</a></li>
+                <li><a href="field-notes/knowledge-base.html">Knowledge Base</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -523,6 +532,7 @@
         <a href="#featured" onclick="document.getElementById('mobile-menu').classList.remove('open')">Work</a>
         <a href="#projects" onclick="document.getElementById('mobile-menu').classList.remove('open')">Projects</a>
         <a href="#notes" onclick="document.getElementById('mobile-menu').classList.remove('open')">Notes</a>
+        <a href="field-notes/knowledge-base.html">Infrastructure Knowledge Base ↗</a>
         <a href="#contact" onclick="document.getElementById('mobile-menu').classList.remove('open')">Contact</a>
     </div>
 </header>
@@ -908,7 +918,10 @@
         <div class="section-label reveal">// Notes</div>
         <h2 class="reveal delay-100">IT Field Notes</h2>
         <p style="color:var(--text-muted);font-size:13px;margin-bottom:1.25rem;font-family:var(--mono);">/* practical troubleshooting, technical walkthroughs and lessons from enterprise IT */</p>
-        <a class="btn-primary field-notes-cta" href="field-notes/">Explore IT Field Notes <span aria-hidden="true">↗</span></a>
+        <div class="field-notes-actions">
+            <a class="btn-primary field-notes-cta" href="field-notes/knowledge-base.html">Open Infrastructure Knowledge Base <span aria-hidden="true">↗</span></a>
+            <a class="btn-ghost field-notes-secondary" href="field-notes/">Browse all IT Field Notes <span aria-hidden="true">↗</span></a>
+        </div>
         <div class="notes-grid">
             <article class="note-card reveal-scale">
                 <div class="note-type" style="color:#55e0c2;"><div class="note-dot" style="background:#55e0c2;"></div>field_notes</div>
