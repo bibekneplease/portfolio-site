@@ -133,6 +133,26 @@
         "UPS"
       ],
       "url": "articles/data-centre-operations.html"
+    },
+    {
+      "id": "dhcp-dns-troubleshooting",
+      "title": "DHCP & DNS Troubleshooting: Addressing and Name Resolution",
+      "category": "network_data_centre",
+      "categoryLabel": "NETWORK & DATA CENTRE",
+      "description": "A first-response workflow for DHCP lease failures, scope exhaustion, duplicate addressing, DNS resolution errors and safe escalation across enterprise networks.",
+      "icon": "⌘",
+      "status": "published",
+      "readingTime": "Published · 9 min",
+      "tags": [
+        "DHCP",
+        "DNS",
+        "IP addressing",
+        "Windows",
+        "Cisco",
+        "network troubleshooting",
+        "enterprise IT"
+      ],
+      "url": "articles/dhcp-dns-troubleshooting.html"
     }
   ]
 }
