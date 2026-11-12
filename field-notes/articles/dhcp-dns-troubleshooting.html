@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A practical enterprise workflow for diagnosing DHCP address assignment and DNS name-resolution faults, with safe Windows and Cisco read-only checks.">
+<meta name="theme-color" content="#080d12">
+<link rel="canonical" href="https://www.chaudharybibek.com.np/field-notes/articles/dhcp-dns-troubleshooting.html">
+<meta property="og:title" content="DHCP & DNS Troubleshooting | IT Field Notes">
+<meta property="og:description" content="Diagnose lease failures, scope exhaustion, duplicate addressing and DNS resolution errors in enterprise environments.">
+<meta property="og:type" content="article">
+<title>DHCP & DNS Troubleshooting: Addressing and Name Resolution | IT Field Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#080d12;--panel:#0f1920;--text:#edf7f6;--muted:#a2b7b8;--teal:#72f0d3;--line:rgba(179,215,218,.15)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 90% 0%,rgba(12,170,145,.13),transparent 45%),var(--bg);color:var(--text);font:16px/1.8 Manrope,Arial,sans-serif}a{color:var(--teal);text-decoration:none}a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}.top{max-width:900px;margin:auto;padding:26px 24px;border-bottom:1px solid var(--line);font:12px 'DM Mono',monospace;letter-spacing:.08em}.wrap{max-width:820px;margin:70px auto;padding:0 24px 90px}.eyebrow{font:11px 'DM Mono',monospace;color:var(--teal);letter-spacing:.15em;text-transform:uppercase}.wrap h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.12;letter-spacing:-.04em;margin:18px 0}.intro{font-size:1.15rem;color:#c8d8d7;max-width:700px}.meta{font:11px 'DM Mono',monospace;color:var(--muted);margin:24px 0 42px}.panel{background:linear-gradient(145deg,rgba(24,42,48,.72),rgba(10,18,24,.82));border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:26px 0}.wrap h2{font-size:1.5rem;margin:42px 0 12px}.wrap h3{font-size:1.05rem;color:var(--teal);margin:26px 0 8px}.wrap li{margin:8px 0}.wrap code{font:.9em 'DM Mono',monospace;color:var(--teal);background:#13242a;padding:2px 5px;border-radius:4px}.note{color:var(--muted);font-size:.92rem}.back{display:inline-block;margin-top:36px;border:1px solid var(--line);border-radius:7px;padding:10px 14px}
+@media(max-width:600px){.top{padding:20px 18px}.wrap{margin:42px auto;padding:0 18px 65px}.panel{padding:18px}.intro{font-size:1.03rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TechArticle","headline":"DHCP & DNS Troubleshooting: Addressing and Name Resolution","description":"A practical enterprise workflow for diagnosing DHCP and DNS faults.","author":{"@type":"Person","name":"Bibek Chaudhary","url":"https://www.chaudharybibek.com.np/"},"mainEntityOfPage":"https://www.chaudharybibek.com.np/field-notes/articles/dhcp-dns-troubleshooting.html"}
+</script>
+</head>
+<body>
+<header class="top"><a href="../index.html">BC / FIELD NOTES</a>　·　<a href="../../">PORTFOLIO</a></header>
+<main class="wrap">
+<p class="eyebrow">NETWORK &amp; DATA CENTRE / PRACTICAL GUIDE</p>
+<h1>DHCP &amp; DNS Troubleshooting: Addressing and Name Resolution</h1>
+<p class="intro">A structured first-response workflow for separating IP address assignment problems from DNS name-resolution faults in enterprise environments.</p>
+<p class="meta">BY BIBEK CHAUDHARY　·　PRACTICAL TROUBLESHOOTING GUIDE　·　9 MIN READ</p>
+<div class="panel"><strong>Scope and safety</strong><p>Start with read-only checks and compare results against approved network documentation. Do not change DHCP scopes, reservations, DNS records, relay settings, VLANs or firewall rules without the responsible team's approval and an authorised change. Sanitise hostnames, IP addresses and command output before sharing publicly.</p></div>
+<h2>1. Define the symptom and blast radius</h2>
+<ul>
+<li>Establish whether the issue affects one endpoint, a group of devices, one VLAN, one site or multiple locations.</li>
+<li>Record the affected device, switch port or wireless network, approximate start time, error message and business impact.</li>
+<li>Compare a working device on the same subnet and, where permitted, a known-good device on another subnet.</li>
+<li>Check for recent moves, changes, endpoint rebuilds, DHCP maintenance or DNS updates.</li>
+</ul>
+<h2>2. Check the endpoint's IP configuration</h2>
+<p>On Windows, use <code>ipconfig /all</code> to review the IPv4 address, subnet mask, default gateway, DHCP server, lease times and DNS servers.</p>
+<ul>
+<li>An address in <code>169.254.0.0/16</code> usually indicates the endpoint did not obtain a DHCP lease.</li>
+<li>A missing or unexpected default gateway can point to an incorrect scope option, VLAN or endpoint configuration.</li>
+<li>An unexpected DNS server may explain why only name-based access fails.</li>
+<li>Check for duplicate-IP warnings and compare the subnet details with the approved site record.</li>
+</ul>
+<h2>3. Isolate DHCP lease failures</h2>
+<p>Follow the DHCP path in order: endpoint → access port or wireless network → VLAN → DHCP relay/helper → DHCP server and scope.</p>
+<ul>
+<li>Confirm the endpoint is connected to the expected access network and VLAN.</li>
+<li>Ask the network team to verify relay/helper reachability and the correct server target.</li>
+<li>Check scope utilisation, available addresses, exclusions, reservations and lease state.</li>
+<li>Review server logs for discover/offer/request/acknowledgement failures, where access is authorised.</li>
+<li>On Cisco platforms, authorised read-only checks may include <code>show ip dhcp binding</code>, <code>show ip dhcp pool</code>, <code>show ip interface brief</code> and <code>show logging</code>.</li>
+</ul>
+<div class="panel"><strong>Common DHCP patterns</strong><p><strong>One device affected:</strong> check its NIC, cable/Wi-Fi, authentication and local configuration. <strong>One VLAN affected:</strong> investigate VLAN assignment, relay configuration and scope mapping. <strong>Many VLANs or sites affected:</strong> check DHCP service health, shared infrastructure, recent changes and provider dependencies.</p></div>
+<h2>4. Test DNS separately from connectivity</h2>
+<p>First confirm the endpoint has a valid IP address and can reach its expected gateway. Then test name resolution using the configured resolver.</p>
+<ul>
+<li><code>nslookup hostname.example.internal</code> checks the configured DNS resolver.</li>
+<li><code>nslookup hostname.example.internal 10.0.0.10</code> queries a specified resolver; replace the example address with an approved internal resolver.</li>
+<li>In PowerShell, <code>Resolve-DnsName hostname.example.internal</code> provides additional record and response detail.</li>
+<li>Compare the response from a working endpoint and a second approved resolver if policy permits.</li>
+<li>Check whether the failure concerns one record, one DNS zone, reverse lookup, conditional forwarding or all name resolution.</li>
+</ul>
+<p>A successful connection to a service by IP address but not by hostname suggests a name-resolution path worth investigating. It does not, by itself, prove the DNS server is the root cause; application, routing and access controls may also be involved.</p>
+<h2>5. Interpret common DNS symptoms</h2>
+<ul>
+<li><strong>NXDOMAIN:</strong> the queried name was not found in the responding DNS view; confirm spelling, suffix and authoritative zone.</li>
+<li><strong>Timeout:</strong> check resolver reachability, UDP/TCP 53 path, server health and firewall policy with the network team.</li>
+<li><strong>Intermittent or stale answer:</strong> review TTL, record lifecycle, replication and cache behaviour.</li>
+<li><strong>Internal name fails, public name works:</strong> investigate internal zones, VPN path, split DNS and conditional forwarders.</li>
+<li><strong>Only one application fails:</strong> validate the exact FQDN and service dependency rather than assuming a general DNS outage.</li>
+</ul>
+<h2>6. Be careful with endpoint refresh commands</h2>
+<p>Commands such as <code>ipconfig /release</code>, <code>ipconfig /renew</code> and <code>ipconfig /flushdns</code> can change local network state or interrupt a user's session. Use them only on an approved test device or with the user's agreement and according to the support runbook. Capture the original configuration and results first.</p>
+<h2>7. Build a useful escalation handover</h2>
+<div class="panel">
+<p><strong>Impact:</strong> affected users, devices, sites and business services</p>
+<p><strong>Addressing:</strong> sanitised IP/subnet, gateway, DHCP server and lease details</p>
+<p><strong>DNS:</strong> FQDN tested, resolver used, response code and timestamp</p>
+<p><strong>Checks:</strong> commands run, expected result and actual result</p>
+<p><strong>Context:</strong> recent changes, VLAN/site, wired or wireless path</p>
+<p><strong>Next action:</strong> team or owner required, dependency and update time</p>
+</div>
+<h2>Related Field Notes</h2>
+<ul>
+<li><a href="switch-troubleshooting.html">Enterprise Switch Troubleshooting: Ports, VLANs &amp; Layer 2</a></li>
+<li><a href="router-troubleshooting.html">Router Troubleshooting: Gateways, Routing &amp; WAN</a></li>
+<li><a href="eftpos-pos-connectivity.html">EFTPOS &amp; POS Connectivity Troubleshooting Guide</a></li>
+</ul>
+<p class="note">This article is an educational first-response guide, not a substitute for vendor documentation, network design records or an organisation's approved operational procedures.</p>
+<a class="back" href="../index.html#library">← Back to Field Notes library</a>
+</main>
+</body>
+</html>
