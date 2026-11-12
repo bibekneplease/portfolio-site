@@ -1078,6 +1078,35 @@
     });
 })();
 </script>
+<script>
+// Navigation behaviour: hide on downward scroll, reveal on upward scroll.
+(function () {
+    const header = document.querySelector('header');
+    if (!header) return;
+    let lastY = window.scrollY;
+    let ticking = false;
+    const threshold = 8;
+    function updateNav() {
+        const currentY = window.scrollY;
+        const delta = currentY - lastY;
+        if (currentY <= 24) {
+            header.classList.remove('nav-hidden');
+        } else if (delta > threshold) {
+            header.classList.add('nav-hidden');
+        } else if (delta < -threshold) {
+            header.classList.remove('nav-hidden');
+        }
+        lastY = currentY;
+        ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNav);
+            ticking = true;
+        }
+    }, { passive: true });
+})();
+</script>
 <script src="scripts/main.js"></script>
 <script src="scripts/parallax-3d.js" defer></script>
 <script>
