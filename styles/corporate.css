@@ -387,73 +387,67 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2
 }
 
 
-/* ENTERPRISE BRAND VISIBILITY — static, high-contrast logo cards */
-.client-logo-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    margin: 1rem 0 .8rem;
+
+
+/* CONTINUOUS CLIENT LOGO TICKER */
+.client-logo-ticker {
+    --logo-gap: 2.25rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 1.2rem 0 .9rem;
+    padding: 1.15rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
 }
-.client-logo-card {
-    min-width: 0;
-    min-height: 112px;
-    padding: 1.1rem .85rem .85rem;
+.client-logo-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    gap: var(--logo-gap);
+    animation: client-logo-scroll 48s linear infinite;
+    will-change: transform;
+}
+.client-logo-ticker:hover .client-logo-track { animation-play-state: paused; }
+.client-logo-item {
+    flex: 0 0 164px;
+    min-height: 76px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: .8rem;
+    gap: .45rem;
     text-align: center;
-    background: var(--bg2, #fff);
-    border: 1px solid var(--border, rgba(0,0,0,.12));
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,.055);
-    transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
-.client-logo-card:hover {
-    border-color: var(--border-hover, #0f766e);
-    transform: translateY(-3px);
-    box-shadow: 0 9px 24px rgba(0,0,0,.1);
-}
-.client-logo-card img {
+.client-logo-item img {
     display: block;
     width: auto;
-    max-width: min(100%, 190px);
-    height: 42px;
+    max-width: 148px;
+    height: 39px;
     object-fit: contain;
-    opacity: 1;
+    opacity: .95;
+    filter: grayscale(100%);
+    transition: filter .25s ease, transform .25s ease;
 }
-.client-logo-card > span:last-child {
-    color: var(--text, #171717);
-    font: 600 .82rem/1.3 var(--sans, Arial, sans-serif);
-    letter-spacing: .01em;
+.client-logo-item:hover img { filter: grayscale(0); transform: scale(1.08); }
+.client-logo-item span {
+    color: var(--text-muted);
+    font: 600 .72rem/1.25 var(--sans, Arial, sans-serif);
+    white-space: nowrap;
 }
-.client-logo-wordmark {
-    min-height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font: 800 1.65rem/1 Arial, sans-serif;
-    letter-spacing: .08em;
+@keyframes client-logo-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
-.client-logo-wordmark.ampol { color: #e2231a; }
-.client-logo-card.logo-fallback img { display: none; }
 @media (max-width: 680px) {
-    .client-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-    .client-logo-card { min-height: 104px; padding: .9rem .55rem; }
-    .client-logo-card img { max-width: 100%; height: 38px; }
-    .client-logo-card > span:last-child { font-size: .78rem; }
+    .client-logo-track { animation-duration: 38s; }
+    .client-logo-item { flex-basis: 132px; }
+    .client-logo-item img { max-width: 118px; height: 34px; }
 }
 @media (prefers-reduced-motion: reduce) {
-    .client-logo-card { transition: none; }
+    .client-logo-ticker { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+    .client-logo-track { animation: none; }
 }
 
-/* Additional client wordmarks use clear text treatments where a verified logo asset is not configured. */
-.client-logo-grid-additional { margin-top: .75rem; }
-.client-logo-wordmark.just { color: #222; font-size: 1.35rem; letter-spacing: -.04em; }
-.client-logo-wordmark.lululemon { color: #c8102e; font-size: 1.3rem; letter-spacing: -.04em; }
-.client-logo-wordmark.robeco { color: #00a0df; font-size: 1.5rem; }
-.client-logo-wordmark.target { color: #cc0000; font-size: 1.55rem; }
-.client-logo-wordmark.bigw { color: #2255a4; font-size: 1.55rem; letter-spacing: .08em; }
-.client-logo-wordmark.auspost { color: #dc1928; font-size: 1.1rem; letter-spacing: -.02em; }
-.client-logo-wordmark.mcd { color: #db0007; font-size: 2rem; }
