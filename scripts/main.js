@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const isLight = theme === "light";
 
         body.classList.toggle("light", isLight);
+        const themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta) themeMeta.setAttribute("content", isLight ? "#f4f6f8" : "#0a0a0d");
 
         if (themeButton) {
             themeButton.textContent = isLight ? "🌙 dark" : "☀️ light";
