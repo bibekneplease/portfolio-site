@@ -428,10 +428,10 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 2
     height: 39px;
     object-fit: contain;
     opacity: .95;
-    filter: grayscale(100%);
-    transition: filter .25s ease, transform .25s ease;
+    filter: none;
+    transition: transform .25s ease;
 }
-.client-logo-item:hover img { filter: grayscale(0); transform: scale(1.08); }
+.client-logo-item:hover img { transform: scale(1.08); }
 .client-logo-item span {
     color: var(--text-muted);
     font: 600 .72rem/1.25 var(--sans, Arial, sans-serif);
