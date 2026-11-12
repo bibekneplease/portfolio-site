@@ -475,6 +475,47 @@
             html { scroll-behavior: auto; }
             *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
         }
+
+
+        /* PROFESSIONAL ONE-PAGE SECTION TABS */
+        header { background: color-mix(in srgb, var(--bg2) 94%, transparent); }
+        .nav-inner { max-width: 1200px; }
+        nav ul { gap: .2rem; }
+        nav a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 7px 10px;
+            border: 1px solid transparent;
+            border-radius: 7px;
+            font-family: var(--sans);
+            font-size: 11.5px;
+            font-weight: 550;
+            letter-spacing: .01em;
+            white-space: nowrap;
+        }
+        nav a::after { display: none; }
+        nav a:hover, nav a:focus-visible {
+            color: var(--text);
+            background: var(--indigo-dim);
+            border-color: var(--border-hover);
+            outline: none;
+        }
+        section[id] { scroll-margin-top: 86px; }
+        .spatial-nav { display: none !important; }
+        #mobile-menu a { font-family: var(--sans); font-size: 13px; font-weight: 550; padding: 9px 0; }
+        .stat-val { font-size: clamp(1rem, 1.8vw, 1.35rem); }
+        .stat-lbl { line-height: 1.4; }
+        @media (max-width: 1080px) {
+            nav { display: none; }
+            #mobile-toggle { display: block; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+            .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
+            h1::before, h1::after { display: none !important; }
+        }
 </style>
     <!-- Corporate theme -->
     <link rel="stylesheet" href="styles/corporate.css">
@@ -501,14 +542,12 @@
         <nav aria-label="Primary navigation">
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#recommendations">Reviews</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#certifications">Credentials</a></li>
                 <li><a href="#featured">Work</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#notes">Notes</a></li>
-                <li><a href="field-notes/knowledge-base.html">Knowledge Base</a></li>
+                <li><a href="#notes">Field Notes</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -525,44 +564,18 @@
     </div>
     <div id="mobile-menu" aria-label="Mobile navigation" role="navigation">
         <a href="#about" onclick="document.getElementById('mobile-menu').classList.remove('open')">About</a>
-        <a href="#recommendations" onclick="document.getElementById('mobile-menu').classList.remove('open')">Reviews</a>
         <a href="#experience" onclick="document.getElementById('mobile-menu').classList.remove('open')">Experience</a>
         <a href="#skills" onclick="document.getElementById('mobile-menu').classList.remove('open')">Skills</a>
-        <a href="#certifications" onclick="document.getElementById('mobile-menu').classList.remove('open')">Certifications</a>
+        <a href="#certifications" onclick="document.getElementById('mobile-menu').classList.remove('open')">Credentials</a>
         <a href="#featured" onclick="document.getElementById('mobile-menu').classList.remove('open')">Work</a>
         <a href="#projects" onclick="document.getElementById('mobile-menu').classList.remove('open')">Projects</a>
-        <a href="#notes" onclick="document.getElementById('mobile-menu').classList.remove('open')">Notes</a>
+        <a href="#notes" onclick="document.getElementById('mobile-menu').classList.remove('open')">Field Notes</a>
         <a href="field-notes/knowledge-base.html">Infrastructure Knowledge Base ↗</a>
         <a href="#contact" onclick="document.getElementById('mobile-menu').classList.remove('open')">Contact</a>
     </div>
 </header>
 
-    <aside class="spatial-nav" aria-label="Section navigation">
-        <div class="spatial-nav-heading"><span class="spatial-nav-dot"></span> NAV / SECTIONS</div>
-        <div class="spatial-nav-window">
-            <div class="spatial-nav-track">
-                <a href="#about">01 <span>About</span></a>
-                <a href="#recommendations">02 <span>Reviews</span></a>
-                <a href="#experience">03 <span>Experience</span></a>
-                <a href="#skills">04 <span>Skills</span></a>
-                <a href="#certifications">05 <span>Certifications</span></a>
-                <a href="#featured">06 <span>Work</span></a>
-                <a href="#projects">07 <span>Projects</span></a>
-                <a href="#notes">08 <span>Notes</span></a>
-                <a href="#contact">09 <span>Contact</span></a>
-                <a href="#about" tabindex="-1" aria-hidden="true">01 <span>About</span></a>
-                <a href="#recommendations" tabindex="-1" aria-hidden="true">02 <span>Reviews</span></a>
-                <a href="#experience" tabindex="-1" aria-hidden="true">03 <span>Experience</span></a>
-                <a href="#skills" tabindex="-1" aria-hidden="true">04 <span>Skills</span></a>
-                <a href="#certifications" tabindex="-1" aria-hidden="true">05 <span>Certifications</span></a>
-                <a href="#featured" tabindex="-1" aria-hidden="true">06 <span>Work</span></a>
-                <a href="#projects" tabindex="-1" aria-hidden="true">07 <span>Projects</span></a>
-                <a href="#notes" tabindex="-1" aria-hidden="true">08 <span>Notes</span></a>
-                <a href="#contact" tabindex="-1" aria-hidden="true">09 <span>Contact</span></a>
-            </div>
-        </div>
-        <div class="spatial-nav-footer">HOVER TO PAUSE <span>↕</span></div>
-    </aside>
+
 
 <!-- HERO -->
 <main id="main-content" tabindex="-1">
@@ -587,9 +600,9 @@
         </div>
         <div class="hero-stats">
             <div class="stat"><div class="stat-val">4+</div><div class="stat-lbl">Yrs Exp</div></div>
-            <div class="stat"><div class="stat-val">2,000+</div><div class="stat-lbl">Endpoints</div></div>
-            <div class="stat"><div class="stat-val">500+</div><div class="stat-lbl">Users</div></div>
-            <div class="stat"><div class="stat-val">98%</div><div class="stat-lbl">SLA</div></div>
+            <div class="stat"><div class="stat-val">2,000+</div><div class="stat-lbl">Mobile Devices</div></div>
+            <div class="stat"><div class="stat-val">L1 / L2</div><div class="stat-lbl">IT Support</div></div>
+            <div class="stat"><div class="stat-val">Multi-site</div><div class="stat-lbl">Enterprise Environments</div></div>
         </div>
     </div>
 </section>
