@@ -979,7 +979,7 @@
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
-        <div class="footer-name">Bibek Chaudhary · Desktop Support Engineer</div>
+        <div class="footer-name">Bibek Chaudhary · IT Infrastructure &amp; Endpoint Support Engineer</div>
         <div class="footer-meta">
             sydney, nsw &nbsp;·&nbsp;
             <a href="mailto:chaudharybibek@gmail.com">chaudharybibek@gmail.com</a> &nbsp;·&nbsp;
@@ -1001,6 +1001,7 @@
     function setOpen(open) {
         menu.classList.toggle('open', open);
         toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     }
 
     toggle.addEventListener('click', function (event) {
