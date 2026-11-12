@@ -4,23 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
-
-    <meta name="description" content="Bibek Chaudhary – Desktop Support Engineer & IT Infrastructure Specialist with 4+ years enterprise experience in Sydney, Australia.">
+    <meta name="theme-color" content="#f5f5fa">
+    <meta name="description" content="Bibek Chaudhary is an IT Infrastructure & Endpoint Support Engineer in Sydney, Australia, with 4+ years of enterprise experience across onsite support, networking, endpoint management and data-centre operations.">
     <meta name="author" content="Bibek Chaudhary">
+    <link rel="canonical" href="https://www.chaudharybibek.com.np/">
 
-    <meta property="og:title" content="Bibek Chaudhary | Desktop Support Engineer">
-    <meta property="og:description" content="4+ years enterprise IT experience across Fujitsu, HPE and more. Based in Sydney, NSW.">
+    <meta property="og:title" content="Bibek Chaudhary | IT Infrastructure & Endpoint Support Engineer">
+    <meta property="og:description" content="Enterprise IT support, endpoint management, network troubleshooting and data-centre operations in Sydney, Australia.">
     <meta property="og:image" content="https://www.chaudharybibek.com.np/assets/images/profile-pic.png">
     <meta property="og:url" content="https://www.chaudharybibek.com.np">
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bibek Chaudhary | Desktop Support Engineer">
-    <meta name="twitter:description" content="4+ years enterprise IT experience across Fujitsu, HPE and more. Based in Sydney, NSW.">
+    <meta name="twitter:title" content="Bibek Chaudhary | IT Infrastructure & Endpoint Support Engineer">
+    <meta name="twitter:description" content="Enterprise IT support, endpoint management, network troubleshooting and data-centre operations in Sydney, Australia.">
     <meta name="twitter:image" content="https://www.chaudharybibek.com.np/assets/images/profile-pic.png">
 
-    <title>Bibek Chaudhary | Desktop Support Engineer</title>
+    <title>Bibek Chaudhary | IT Infrastructure &amp; Endpoint Support Engineer</title>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Bibek Chaudhary","url":"https://www.chaudharybibek.com.np/","jobTitle":"IT Infrastructure & Endpoint Support Engineer","address":{"@type":"PostalAddress","addressLocality":"Sydney","addressRegion":"NSW","addressCountry":"AU"},"sameAs":["https://www.linkedin.com/in/bibekchaudhary/","https://github.com/bibekneplease"]}
+    </script>
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='4' fill='%230f766e'/><text y='.9em' font-size='52' font-family='monospace' font-weight='bold' fill='white' x='50%' text-anchor='middle' dy='28'>BC</text></svg>">
 
@@ -426,7 +429,45 @@
         .case-study-outcome { background: var(--indigo-dim); border: 1px solid rgba(13,148,136,0.2); border-radius: 8px; padding: 1rem 1.25rem; margin-top: 1.25rem; }
         .case-study-outcome-label { font-family: var(--mono); font-size: 10px; color: var(--indigo-bright); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
         .case-study-outcome-text { font-size: 13.5px; color: var(--text-soft); line-height: 1.7; }
-    </style>
+    /* Accessibility, contrast and responsive refinements */
+        html { scroll-padding-top: 88px; }
+        .skip-link { position: fixed; top: 10px; left: 10px; z-index: 1000; padding: 10px 14px; transform: translateY(-160%); background: var(--bg2); color: var(--text); border: 2px solid var(--indigo); border-radius: 6px; font-family: var(--mono); font-size: 12px; text-decoration: none; }
+        .skip-link:focus { transform: translateY(0); }
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--indigo-bright); outline-offset: 3px; }
+        body.light {
+            --bg: #f4f6f8; --bg2: #ffffff; --bg3: #f0f3f5; --bg4: #e7ecef;
+            --border: rgba(15,23,42,.13); --border-hover: rgba(15,118,110,.55);
+            --indigo: #0f766e; --indigo-bright: #0f766e; --indigo-dim: rgba(15,118,110,.09);
+            --text: #111827; --text-muted: #4b5563; --text-soft: #374151; --text-dim: #596579;
+        }
+        body.light header { background: rgba(244,246,248,.96); }
+        body.light .hero-bg-overlay { background: linear-gradient(115deg, rgba(244,246,248,.97) 0%, rgba(244,246,248,.91) 62%, rgba(15,118,110,.12) 100%); }
+        body.light .hero-stats { background: rgba(255,255,255,.96); border-color: rgba(15,23,42,.15); }
+        body.light .hero-tag { color: #0f766e; }
+        body.light .hero-sub, body.light .about-text, body.light .job-list li, body.light .project-col-text, body.light .rec-text { color: #374151; }
+        body.light .job-company, body.light .cert-meta, body.light .edu-school, body.light .rec-role, body.light .client-logo-note { color: #4b5563; }
+        body.light .job-date, body.light .cert-id, body.light .edu-year, body.light .skill-group-label, body.light .section-label { color: #0f766e; }
+        body.light .tag, body.light .client-chip { color: #4b5563; border-color: rgba(15,23,42,.16); }
+        body.light .note-desc { color: #4b5563; }
+        body.light .contact-link, body.light .contact-link span { color: #374151; }
+        body.light .spatial-nav, body.light .spatial-nav a { color: #4b5563; }
+        body.light .spatial-nav a:hover { color: #0f766e; }
+        body.light #mobile-menu { background: #ffffff; border-color: rgba(15,23,42,.14); }
+        body.light #mobile-menu a { color: #374151; }
+        @media (max-width: 680px) {
+            section { padding: 4.5rem 1.25rem; }
+            .job { padding: 1.5rem; }
+            .hero-name-row { gap: 1rem; }
+            .hero-profile-pic { width: 76px; height: 76px; }
+            .hero-stats { max-width: 100%; }
+            .stat { min-width: 44%; padding: 14px; }
+            .nav-inner { padding: 0 1rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        }
+</style>
     <!-- Corporate theme -->
     <link rel="stylesheet" href="styles/corporate.css">
     <link rel="stylesheet" href="styles/parallax-3d.css">
@@ -440,6 +481,7 @@
     </script>
 </head>
 <body class="light">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- HEADER -->
 <header>
@@ -448,7 +490,7 @@
             <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="logo-avatar" onerror="this.style.display='none'">
             <span class="logo-text">bc<span>@sydney ~</span></span>
         </a>
-        <nav>
+        <nav aria-label="Primary navigation">
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#recommendations">Reviews</a></li>
@@ -472,7 +514,7 @@
             </button>
         </div>
     </div>
-    <div id="mobile-menu" aria-label="Mobile navigation">
+    <div id="mobile-menu" aria-label="Mobile navigation" role="navigation">
         <a href="#about" onclick="document.getElementById('mobile-menu').classList.remove('open')">About</a>
         <a href="#recommendations" onclick="document.getElementById('mobile-menu').classList.remove('open')">Reviews</a>
         <a href="#experience" onclick="document.getElementById('mobile-menu').classList.remove('open')">Experience</a>
@@ -513,6 +555,7 @@
     </aside>
 
 <!-- HERO -->
+<main id="main-content" tabindex="-1">
 <section id="hero">
     <div class="hero-bg"></div>
     <canvas id="hero-canvas"></canvas>
@@ -524,9 +567,9 @@
             <img src="assets/images/profile-pic.png" alt="Bibek Chaudhary" class="hero-profile-pic" onerror="this.style.display='none'">
             <h1 data-text="Bibek Chaudhary">Bibek<br><em>Chaudhary</em></h1>
         </div>
-        <div class="hero-role">// Desktop Support Engineer · Endpoint &amp; Infrastructure</div>
-        <div class="hero-sub2">Microsoft 365 &nbsp;·&nbsp; Intune &amp; Autopilot &nbsp;·&nbsp; Active Directory &nbsp;·&nbsp; ITIL</div>
-        <p class="hero-sub">4+ years supporting enterprise environments across Fujitsu and HPE. 500+ users, 2,000+ managed endpoints, and 98% SLA compliance, from executive support to national infrastructure rollouts.</p>
+        <div class="hero-role">// IT Infrastructure &amp; Endpoint Support Engineer</div>
+        <div class="hero-sub2">Network Support &nbsp;·&nbsp; Data Centre Operations &nbsp;·&nbsp; Microsoft Intune &nbsp;·&nbsp; Microsoft 365</div>
+        <p class="hero-sub">4+ years of enterprise IT experience across onsite support, endpoint management, network troubleshooting and data-centre operations. Supporting multi-site environments, infrastructure refresh programs and business-critical services.</p>
         <div class="hero-btns">
             <a href="#contact" class="btn-primary">hire_me()</a>
             <a href="https://www.linkedin.com/in/bibekchaudhary/" target="_blank" rel="noopener noreferrer" class="btn-ghost">linkedin →</a>
@@ -549,8 +592,9 @@
         <div class="about-grid about-grid-text-only">
             <div class="reveal-left">
                 <div class="about-text">
-                    <p>I'm a Desktop Support Engineer with <strong>4+ years of enterprise IT experience</strong> across service desk, onsite field support, and endpoint infrastructure. I specialise in <strong>Microsoft 365, Intune, Active Directory</strong>, and ITIL-aligned service delivery across complex multi-site environments.</p>
-                    <p>Consistently achieving <strong>98%+ SLA compliance</strong> while supporting 500+ users including C-level executives. Currently studying for <strong>Microsoft MD-102: Endpoint Administrator</strong>.</p>
+                    <p>I am an <strong>IT Infrastructure &amp; Endpoint Support Engineer</strong> with 4+ years of experience across enterprise service desk, onsite field support, endpoint management and infrastructure operations.</p>
+                    <p>My experience includes Fujitsu Australia and an onsite deployment at <strong>Hewlett Packard Enterprise (HPE) through Black Box Technologies Australia</strong>. I work across Microsoft 365, Intune, Active Directory, network connectivity, retail technology and data-centre support.</p>
+                    <p>I focus on structured troubleshooting, clear incident documentation, controlled change practices and dependable service delivery across multi-site environments.</p>
                 </div>
                 <p style="font-family:var(--mono);font-size:10.5px;color:var(--text-muted);letter-spacing:0.1em;margin:2rem 0 0.75rem;text-transform:uppercase;">// enterprises supported</p>
                 <div class="client-logo-ticker reveal" role="region" aria-label="Organisations and client environments">
@@ -636,21 +680,20 @@
             <div class="job reveal delay-100">
                 <div class="job-header">
                     <span class="job-title">Onsite IT Support Technician</span>
-                    <span class="job-date">Oct 2022 – July 2024</span>
+                    <span class="job-date">10 Oct 2022 – 30 Nov 2023</span>
                 </div>
-                <div class="job-company">Hewlett Packard Enterprise (HPE) · Rhodes, NSW</div>
+                <div class="job-company">Black Box Technologies Australia · Client deployment: Hewlett Packard Enterprise (HPE) · Sydney, NSW</div>
                 <ul class="job-list">
-                    <li>Managed <strong>15–20+ Level 1/2 ServiceNow tickets daily</strong> across a 500+ user enterprise environment.</li>
-                    <li>Delivered white-glove executive support to C-level stakeholders across the APAC region.</li>
-                    <li>Administered Active Directory and Azure AD lifecycle management for onboarding and offboarding.</li>
-                    <li>Managed <strong>2,000+ mobile devices and laptops</strong> via Microsoft Intune and MDM platforms.</li>
-                    <li>Led laptop imaging and deployment using SOE standards and Intune Autopilot.</li>
-                    <li class="achievement"><strong>Key Achievement:</strong> Drove a data centre consolidation initiative with minimal downtime throughout.</li>
+                    <li>Provided onsite Level 1/2 support across HPE corporate-office and data-centre environments, supporting approximately <strong>50–60 users</strong> and shared meeting-room services.</li>
+                    <li>Supported enterprise connectivity across LAN, Wi-Fi, VPN, switching, wireless access points and SD-WAN environments, working with the relevant network teams.</li>
+                    <li>Assisted with data-centre and infrastructure activities including rack and stack, equipment relocation, copper/fibre patching, SFPs and IDF/MDF checks under approved change procedures.</li>
+                    <li>Investigated endpoint, printer, meeting-room and network incidents; recorded diagnostics, actions and handovers through the service-management process.</li>
+                    <li class="achievement"><strong>Key contribution:</strong> Supported HPE site consolidation and infrastructure migration activities, helping maintain service continuity with minimal downtime.</li>
                 </ul>
                 <div class="photo-strip">
-                    <img loading="lazy" decoding="async" src="assets/images/hpe-office.jpg" alt="Bibek at HPE office Rhodes NSW">
+                    <img loading="lazy" decoding="async" src="assets/images/hpe-office.jpg" alt="HPE Sydney client-site environment where onsite support was provided">
                     <div class="photo-strip-overlay"></div>
-                    <div class="photo-strip-label"><span>// on_site</span> · HPE Office · Rhodes, NSW</div>
+                    <div class="photo-strip-label"><span>// client_deployment</span> · HPE · Sydney, NSW</div>
                 </div>
             </div>
             <div class="job reveal delay-200">
@@ -705,7 +748,8 @@
         <p class="cert-group-lbl">professional_memberships</p>
         <div class="certs reveal">
             <div class="cert"><span class="cert-ico">🏅</span><div><div class="cert-name">Member — Australian Computer Society (ACS)</div><div class="cert-meta">ICT Professional Body · Australia</div></div></div>
-            <div class="cert"><span class="cert-ico">✅</span><div><div class="cert-name">ACS Skills Assessment — Positive Outcome</div><div class="cert-meta">Computer Network and Systems Engineer</div></div></div>
+            <div class="cert"><span class="cert-ico">✅</span><div><div class="cert-name">ACS Skills Assessment — Positive Outcome</div><div class="cert-meta">Computer Network and Systems Engineer · ANZSCO 263111 · 23 Jan 2024</div></div></div>
+            <div class="cert"><span class="cert-ico">✅</span><div><div class="cert-name">ACS Skills Assessment — Positive Outcome</div><div class="cert-meta">ICT Security Specialist · ANZSCO 262112 · 13 Apr 2026</div></div></div>
         </div>
         <p class="cert-group-lbl">microsoft</p>
         <div class="certs reveal delay-100">
@@ -771,13 +815,13 @@
 
             <!-- CASE STUDY 1 -->
             <div class="case-study reveal">
-                <div class="case-study-badge">// enterprise_project · HPE · Oct 2022 – July 2024</div>
+                <div class="case-study-badge">// enterprise_project · Black Box Technologies Australia / HPE client · Oct 2022 – Nov 2023</div>
                 <div class="case-study-title">Enterprise Site Migration &amp; Network Infrastructure Consolidation</div>
-                <div class="case-study-org">Hewlett Packard Enterprise · Rhodes, NSW</div>
+                <div class="case-study-org">HPE client deployment · Sydney, NSW</div>
                 <div class="case-study-grid">
                     <div>
                         <div class="case-study-block-label">challenge</div>
-                        <div class="case-study-block-text">Support a full site consolidation involving complex network and infrastructure migration while maintaining 100% operational continuity for 500+ users across the APAC region.</div>
+                        <div class="case-study-block-text">Support a site consolidation involving network and infrastructure migration while maintaining service continuity for approximately 50–60 onsite users and shared meeting-room services.</div>
                     </div>
                     <div>
                         <div class="case-study-block-label">responsibilities</div>
@@ -794,7 +838,7 @@
                 </div>
                 <div class="case-study-outcome">
                     <div class="case-study-outcome-label">// outcome</div>
-                    <div class="case-study-outcome-text">Successfully completed site consolidation with <strong>minimal downtime</strong> and uninterrupted business operations throughout the transition. Recognised by the Systems Engineer team for reliability and proactive support during critical migration phases.</div>
+                    <div class="case-study-outcome-text">Supported the site consolidation and infrastructure transition with <strong>minimal downtime</strong>, contributing to coordinated migration activities and day-to-day service continuity.</div>
                 </div>
                 <div class="tags" style="margin-top:1.25rem;">
                     <span class="tag">SD-WAN</span><span class="tag">Juniper Networks</span><span class="tag">HPE Aruba</span><span class="tag">Network Migration</span><span class="tag">Data Centre</span><span class="tag">Cable Management</span><span class="tag">Infrastructure</span>
@@ -943,6 +987,7 @@
         </div>
         <div style="font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:8px;">&copy; <span id="year"></span> · all rights reserved</div>
     </div>
+</main>
 </footer>
 
 <script>
@@ -993,6 +1038,8 @@ function applyTheme(theme) {
     const isLight = theme === 'light';
 
     document.body.classList.toggle('light', isLight);
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.setAttribute('content', isLight ? '#f4f6f8' : '#0a0a0d');
 
     const btn = document.getElementById('theme-btn');
 
