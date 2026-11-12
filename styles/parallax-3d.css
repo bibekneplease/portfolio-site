@@ -561,3 +561,65 @@ header.nav-hidden { transform: translateY(-105%); }
   section[id] { scroll-margin-top: 88px; }
   #mobile-toggle, #mobile-menu { display: none !important; }
 }
+
+
+/* High-contrast, polished section navigation links */
+header nav ul {
+  gap: clamp(5px, .7vw, 11px) !important;
+}
+header nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #d9eeec !important;
+  font-family: var(--sans, Inter, sans-serif);
+  font-size: clamp(11px, .82vw, 12px) !important;
+  font-weight: 650;
+  letter-spacing: .015em;
+  text-decoration: none;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+header nav a:hover,
+header nav a:focus-visible {
+  color: #72f0d3 !important;
+  background: rgba(45,212,191,.10);
+  border-color: rgba(85,224,194,.32);
+  box-shadow: 0 0 18px rgba(45,212,191,.10);
+  transform: translateY(-1px);
+}
+header nav a.parallax-active-link,
+header nav a[aria-current="location"],
+header nav a[aria-current="page"] {
+  color: #061b19 !important;
+  background: linear-gradient(135deg, #72f0d3, #35cdb4);
+  border-color: rgba(114,240,211,.75);
+  box-shadow: 0 3px 14px rgba(45,212,191,.22);
+}
+header nav a.parallax-active-link::after { display: none !important; }
+body.light header nav a {
+  color: #315b58 !important;
+}
+body.light header nav a:hover,
+body.light header nav a:focus-visible {
+  color: #075e55 !important;
+  background: rgba(8,127,112,.09);
+  border-color: rgba(8,127,112,.28);
+  box-shadow: 0 0 16px rgba(8,127,112,.08);
+}
+body.light header nav a.parallax-active-link,
+body.light header nav a[aria-current="location"],
+body.light header nav a[aria-current="page"] {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0f8f80, #087568);
+  border-color: rgba(8,117,104,.65);
+  box-shadow: 0 3px 14px rgba(8,127,112,.18);
+}
+@media (max-width: 1100px) {
+  header nav a { min-height: 0; padding: 10px 0; border-radius: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  header nav a { transition: none; }
+}
